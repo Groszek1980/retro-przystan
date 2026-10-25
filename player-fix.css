@@ -3,3 +3,10 @@
 #emuFrame[hidden] { display:none!important; }
 .compat-label { display:block; font-size:12px; line-height:1.6; color:#c4c5e4; margin:12px 0; cursor:pointer; }
 .compat-label input { vertical-align:middle; margin-right:7px; accent-color:#f86bce; }
+.launch-options { display:grid; gap:10px; margin:14px 0; padding:14px; background:#11152c; border:1px solid #44415f; border-radius:6px; }
+.launch-options>label:first-child { font-size:10px; font-weight:700; letter-spacing:1px; color:#aaa7dc; }
+.launch-options select { box-sizing:border-box; width:100%; font:12px 'Space Grotesk',sans-serif; padding:11px; background:#25243b; border:1px solid #827fa1; color:#fff; border-radius:4px; }
+.launch-options .compat-label { margin:0; }
+.keyboard-test { padding:13px; border:1px solid #6c5b8b; background:#26213f; border-radius:5px; color:#e2cfef; font-size:12px; line-height:1.6; }
+.keyboard-test.keyboard-ok { border-color:#46b7a5; color:#aaf9e2; background:#133632; }
+.control-tip { font-size:12px !important; }
