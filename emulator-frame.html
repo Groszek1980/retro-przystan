@@ -36,30 +36,6 @@
       window.EJS_gameName = data.name;
       window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
       window.EJS_startOnLoaded = true;
-      // Domyslne sterowanie RetroPad: strzalki, X = Fire, V = klawiatura ekranowa.
-      window.EJS_defaultControls = {
-        0: {
-          0: { value:'x' },
-          2: { value:'v' },
-          3: { value:'enter' },
-          4: { value:'up arrow' },
-          5: { value:'down arrow' },
-          6: { value:'left arrow' },
-          7: { value:'right arrow' },
-          8: { value:'z' }
-        }
-      };
-      window.EJS_defaultOptions = {
-        'keyboardInput': 'enabled',
-        'vice_joyport': data.joyport === '1' ? '1' : '2',
-        'vice_joyport_type': '1',
-        'vice_autoloadwarp': data.fastLoad ? 'mute' : 'disabled',
-        'vice_warp_boost': data.fastLoad ? 'enabled' : 'disabled',
-        'vice_autostart': data.fastLoad ? 'warp' : 'enabled'
-      };
-      window.EJS_onGameStart = function() {
-        parent.postMessage({ type:'retro-c64-running' }, location.origin);
-      };
       if (data.legacy) window.EJS_forceLegacyCores = true;
       var loader = document.createElement('script');
       loader.src = window.EJS_pathtodata + 'loader.js';
@@ -69,17 +45,6 @@
       document.body.appendChild(loader);
       parent.postMessage({ type:'retro-c64-loading', name:data.name }, location.origin);
     });
-    // Diagnostyka: sprawdzamy tylko klawisze sterowania, nie przechwytujemy tekstu.
-    window.addEventListener('keydown', function(e) {
-      if (!started || e.repeat) return;
-      var code = e.code || e.key;
-      if (code === 'ArrowUp' || code === 'ArrowDown' ||
-          code === 'ArrowLeft' || code === 'ArrowRight' ||
-          code === 'KeyX' || code === 'KeyZ' || code === 'Space' ||
-          code === 'Enter' || code === 'ControlRight') {
-        parent.postMessage({ type:'retro-c64-key', key:code }, location.origin);
-      }
-    }, true);
     parent.postMessage({ type:'retro-c64-ready' }, location.origin);
   </script>
 </body>
