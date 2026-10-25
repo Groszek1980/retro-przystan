@@ -35,7 +35,7 @@ function startGame(file, url, name) {
   document.getElementById('placeholder').hidden = true;
   frame.hidden = false;
   status.textContent = 'Przygotowywanie emulatora: ' + name + '…';
-  frame.src = 'emulator-frame.html?v=2';
+  frame.src = 'emulator-frame.html?v=4';
 }
 
 window.addEventListener('message', function(event) {
