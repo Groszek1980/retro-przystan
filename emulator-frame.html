@@ -45,6 +45,22 @@
       document.body.appendChild(loader);
       parent.postMessage({ type:'retro-c64-loading', name:data.name }, location.origin);
     });
+    // Pasywna diagnostyka: przechwytujemy tylko informację o naciśnięciu.
+    // Nie blokujemy zdarzenia ani nie modyfikujemy mapowania sterowania.
+    window.addEventListener('keydown', function(event) {
+      if (!started || event.repeat) return;
+      var code = event.code || '';
+      var key = event.key || '';
+      if (code === 'ArrowUp' || code === 'ArrowDown' ||
+          code === 'ArrowLeft' || code === 'ArrowRight' ||
+          code === 'KeyX' || code === 'Space' ||
+          code === 'Enter' || code === 'ControlRight' ||
+          key === 'x' || key === 'X') {
+        parent.postMessage({
+          type:'retro-c64-key-detected', code:code, key:key
+        }, location.origin);
+      }
+    }, true);
     parent.postMessage({ type:'retro-c64-ready' }, location.origin);
   </script>
 </body>
