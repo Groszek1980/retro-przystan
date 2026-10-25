@@ -5,6 +5,17 @@ const status = document.getElementById('notice');
 const featured = document.getElementById('featuredButton');
 const frame = document.getElementById('emuFrame');
 const legacy = document.getElementById('compatMode');
+const diagnostic = document.getElementById('keyDiagnostic');
+document.getElementById('focusKeyboard').addEventListener('click', function() {
+  if (frame.hidden) {
+    diagnostic.textContent = 'Najpierw wybierz grę i uruchom emulator.';
+    return;
+  }
+  // Przekazujemy fokus do osobnego okna, bez zmiany ustawień VICE.
+  frame.focus();
+  frame.contentWindow.focus();
+  diagnostic.textContent = 'Fokus przekazany. Naciśnij teraz strzałkę lub X. Jeżeli brak reakcji, kliknij bezpośrednio ekran gry.';
+});
 let started = false;
 let pendingGame = null;
 
@@ -35,6 +46,14 @@ window.addEventListener('message', function(event) {
     pendingGame = null;
   } else if (data.type === 'retro-c64-loading') {
     status.textContent = 'Wczytywanie gry: ' + data.name + '. Po uruchomieniu kliknij ekran emulatora, aby sterować.';
+  } else if (data.type === 'retro-c64-key-detected') {
+    const labels = {
+      ArrowUp: 'strzałka w górę', ArrowDown: 'strzałka w dół',
+      ArrowLeft: 'strzałka w lewo', ArrowRight: 'strzałka w prawo',
+      KeyX: 'X', Space: 'spacja', Enter: 'Enter', ControlRight: 'prawy Ctrl'
+    };
+    diagnostic.textContent = 'Klawisz wykryty w ramce: ' + (labels[data.code] || data.key || data.code) + '. To potwierdza tylko odbiór przez okno; nie oznacza jeszcze, że VICE przypisał go do joysticka.';
+    diagnostic.classList.add('keyboard-ok');
   } else if (data.type === 'retro-c64-error') {
     status.textContent = data.message;
   }
