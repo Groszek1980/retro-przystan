@@ -3,3 +3,5 @@
 #emuFrame[hidden] { display:none!important; }
 .compat-label { display:block; font-size:12px; line-height:1.6; color:#c4c5e4; margin:12px 0; cursor:pointer; }
 .compat-label input { vertical-align:middle; margin-right:7px; accent-color:#f86bce; }
+.keyboard-diagnostic { margin:12px 0; padding:12px; font-size:12px; line-height:1.6; color:#e5ddfa; background:#24203c; border:1px solid #6b608d; border-radius:6px; }
+.keyboard-diagnostic.keyboard-ok { background:#133a35; border-color:#36ab96; color:#baf9ea; }
