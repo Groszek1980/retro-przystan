@@ -5,9 +5,6 @@ const status = document.getElementById('notice');
 const featured = document.getElementById('featuredButton');
 const frame = document.getElementById('emuFrame');
 const legacy = document.getElementById('compatMode');
-const joyport = document.getElementById('joyport');
-const fastLoad = document.getElementById('fastLoad');
-const keyStatus = document.getElementById('keyStatus');
 let started = false;
 let pendingGame = null;
 
@@ -19,19 +16,15 @@ function startGame(file, url, name) {
     file: file || null,
     url: url || null,
     name: name,
-    legacy: legacy.checked,
-    joyport: joyport.value,
-    fastLoad: fastLoad.checked
+    legacy: legacy.checked
   };
   input.disabled = true;
   featured.disabled = true;
   legacy.disabled = true;
-  joyport.disabled = true;
-  fastLoad.disabled = true;
   document.getElementById('placeholder').hidden = true;
   frame.hidden = false;
   status.textContent = 'Przygotowywanie emulatora: ' + name + '…';
-  frame.src = 'emulator-frame.html?v=3';
+  frame.src = 'emulator-frame.html?v=2';
 }
 
 window.addEventListener('message', function(event) {
@@ -42,17 +35,6 @@ window.addEventListener('message', function(event) {
     pendingGame = null;
   } else if (data.type === 'retro-c64-loading') {
     status.textContent = 'Wczytywanie gry: ' + data.name + '. Po uruchomieniu kliknij ekran emulatora, aby sterować.';
-  } else if (data.type === 'retro-c64-running') {
-    status.textContent = 'Emulator uruchomiony. Ładowanie programu z D64 może jeszcze trwać. Kliknij jego ekran i naciśnij strzałkę.';
-  } else if (data.type === 'retro-c64-key') {
-    const names = {
-      ArrowUp:'strzałka w górę', ArrowDown:'strzałka w dół',
-      ArrowLeft:'strzałka w lewo', ArrowRight:'strzałka w prawo',
-      KeyX:'X (Fire)', KeyZ:'Z', Space:'Spacja',
-      Enter:'Enter', ControlRight:'Prawy Ctrl (zmiana portu)'
-    };
-    keyStatus.textContent = '✓ Klawisz dotarł do emulatora: ' + (names[data.key] || data.key) + '. Jeśli gra nie reaguje, sprawdź port joysticka (1 / 2) lub mapowanie w Controller Settings.';
-    keyStatus.classList.add('keyboard-ok');
   } else if (data.type === 'retro-c64-error') {
     status.textContent = data.message;
   }
