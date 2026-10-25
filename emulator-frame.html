@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Odtwarzacz Commodore 64</title>
+  <style>
+    html, body { width:100%; height:100%; padding:0; margin:0; overflow:hidden; background:#080916; }
+    #viewport { position:fixed; inset:0; overflow:hidden; }
+    #game { width:100%; height:100%; overflow:hidden; }
+    #error { box-sizing:border-box; display:none; position:fixed; inset:0; padding:24px;
+             background:#11152b; color:#fff; font:15px/1.6 Arial,sans-serif; }
+  </style>
+</head>
+<body>
+  <div id="viewport"><div id="game"></div></div>
+  <div id="error" role="alert"></div>
+  <script>
+    'use strict';
+    var started = false;
+    function reportError(message) {
+      document.getElementById('error').textContent = message;
+      document.getElementById('error').style.display = 'block';
+      parent.postMessage({ type:'retro-c64-error', message:message }, location.origin);
+    }
+    window.addEventListener('message', function(event) {
+      if (event.origin !== location.origin || event.source !== parent) return;
+      var data = event.data || {};
+      if (data.type !== 'retro-c64-start' || started) return;
+      if ((!data.file && !data.url) || !data.name) { reportError('Nieprawidłowe dane gry.'); return; }
+      started = true;
+      window.EJS_player = '#game';
+      window.EJS_core = data.legacy ? 'vice_x64' : 'vice_x64sc';
+      // Zamiast blob URL przekazujemy bezpośrednio obiekt File z zachowanym rozszerzeniem.
+      window.EJS_gameUrl = data.file || data.url;
+      window.EJS_gameName = data.name;
+      window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+      window.EJS_startOnLoaded = true;
+      if (data.legacy) window.EJS_forceLegacyCores = true;
+      var loader = document.createElement('script');
+      loader.src = window.EJS_pathtodata + 'loader.js';
+      loader.onerror = function() {
+        reportError('Nie można pobrać EmulatorJS. Sprawdź połączenie internetowe i blokowanie skryptów.');
+      };
+      document.body.appendChild(loader);
+      parent.postMessage({ type:'retro-c64-loading', name:data.name }, location.origin);
+    });
+    parent.postMessage({ type:'retro-c64-ready' }, location.origin);
+  </script>
+</body>
+</html>
