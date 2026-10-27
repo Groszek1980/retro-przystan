@@ -26,6 +26,41 @@
     window.addEventListener('message', function(event) {
       if (event.origin !== location.origin || event.source !== parent) return;
       var data = event.data || {};
+      if (data.type === 'retro-c64-input-mode') {
+        // EmulatorJS: przekazywanie klawiatury C64 i joysticka to dwa różne
+        // tryby. Zmieniamy wyłącznie bieżącą sesję — nie zapisujemy tej
+        // preferencji na następne uruchomienie gry.
+        var targetMode = data.mode;
+        var emulator = window.EJS_emulator;
+        var ok = false;
+        var message = '';
+        if (targetMode !== 'keyboard' && targetMode !== 'joystick') {
+          message = 'Nieprawidłowy tryb.';
+        } else if (!emulator || !emulator.started || !emulator.gameManager ||
+                   typeof emulator.gameManager.setKeyboardEnabled !== 'function') {
+          message = 'Emulator jeszcze się uruchamia lub nie obsługuje tej funkcji.';
+        } else {
+          try {
+            var enableKeyboard = targetMode === 'keyboard';
+            emulator.gameManager.setKeyboardEnabled(enableKeyboard);
+            emulator.allSettings.keyboardInput = enableKeyboard ? 'enabled' : 'disabled';
+            ok = true;
+            if (emulator.elements && emulator.elements.parent &&
+                typeof emulator.elements.parent.focus === 'function') {
+              emulator.elements.parent.focus();
+            }
+          } catch (error) {
+            message = 'Nie udało się przełączyć trybu.';
+          }
+        }
+        parent.postMessage({
+          type:'retro-c64-input-mode-status',
+          mode: targetMode,
+          ok: ok,
+          message: message
+        }, location.origin);
+        return;
+      }
       if (data.type !== 'retro-c64-start' || started) return;
       if ((!data.file && !data.url) || !data.name) { reportError('Nieprawidłowe dane gry.'); return; }
       started = true;
@@ -45,8 +80,16 @@
       document.body.appendChild(loader);
       parent.postMessage({ type:'retro-c64-loading', name:data.name }, location.origin);
     });
-    // Pasywna diagnostyka: przechwytujemy tylko informację o naciśnięciu.
-    // Nie blokujemy zdarzenia ani nie modyfikujemy mapowania sterowania.
+    // Tylko w ramce uruchomionej gry anulujemy domyślną czynność
+    // przewijania (nie zatrzymujemy propagacji do EmulatorJS).
+    window.addEventListener('keydown', function(event) {
+      if (!started || event.ctrlKey || event.altKey || event.metaKey) return;
+      if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space'].indexOf(event.code) === -1) return;
+      var t = event.target;
+      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName || ''))) return;
+      event.preventDefault();
+    }, true);
+    // Pasywna diagnostyka klawiszy, bez blokowania sterowania.
     window.addEventListener('keydown', function(event) {
       if (!started || event.repeat) return;
       var code = event.code || '';

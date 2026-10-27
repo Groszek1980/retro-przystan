@@ -23,6 +23,30 @@ function fileForPort(file, port) {
 }
 
 const diagnostic = document.getElementById('keyDiagnostic');
+const modeKeyboardButton = document.getElementById('modeKeyboard');
+const modeJoystickButton = document.getElementById('modeJoystick');
+const inputModeStatus = document.getElementById('inputModeStatus');
+function requestInputMode(mode) {
+  if (!started || frame.hidden) {
+    inputModeStatus.textContent = 'Najpierw uruchom grę, aby przełączyć tryb klawiatury.';
+    return;
+  }
+  inputModeStatus.textContent = 'Przełączanie trybu…';
+  frame.contentWindow.postMessage({ type: 'retro-c64-input-mode', mode: mode }, location.origin);
+}
+modeKeyboardButton.addEventListener('click', function() { requestInputMode('keyboard'); });
+modeJoystickButton.addEventListener('click', function() { requestInputMode('joystick'); });
+
+// Strzałki są klawiszami sterowania tylko gdy fokus należy do ramki gry.
+// Zapobiega to przewijaniu całej strony bez blokowania jej nawigacji.
+window.addEventListener('keydown', function(event) {
+  if (!started || frame.hidden || document.activeElement !== frame) return;
+  if (event.ctrlKey || event.altKey || event.metaKey) return;
+  if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space'].includes(event.code)) {
+    event.preventDefault();
+  }
+}, { capture: true });
+
 document.getElementById('focusKeyboard').addEventListener('click', function() {
   if (frame.hidden) {
     diagnostic.textContent = 'Najpierw wybierz grę i uruchom emulator.';
@@ -64,6 +88,20 @@ window.addEventListener('message', function(event) {
     pendingGame = null;
   } else if (data.type === 'retro-c64-loading') {
     status.textContent = 'Wczytywanie gry: ' + data.name + '. Po uruchomieniu kliknij ekran emulatora, aby sterować.';
+  } else if (data.type === 'retro-c64-input-mode-status') {
+    if (data.ok) {
+      const keyboard = data.mode === 'keyboard';
+      modeKeyboardButton.classList.toggle('is-active', keyboard);
+      modeJoystickButton.classList.toggle('is-active', !keyboard);
+      modeKeyboardButton.setAttribute('aria-pressed', String(keyboard));
+      modeJoystickButton.setAttribute('aria-pressed', String(!keyboard));
+      inputModeStatus.textContent = keyboard
+        ? 'Klawiatura C64 aktywna. Kliknij ekran emulatora i naciśnij N lub C. Przed lotem włącz JOYSTICK.'
+        : 'Joystick aktywny. Kliknij ekran gry i steruj strzałkami oraz X.';
+    } else {
+      inputModeStatus.textContent = 'Tryb nie został przełączony. ' +
+        (data.message || 'Spróbuj ponownie po uruchomieniu gry albo w ustawieniach Input Options w EmulatorJS.');
+    }
   } else if (data.type === 'retro-c64-key-detected') {
     const labels = {
       ArrowUp: 'strzałka w górę', ArrowDown: 'strzałka w dół',
