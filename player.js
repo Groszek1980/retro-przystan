@@ -101,7 +101,8 @@ document.getElementById('resetButton').addEventListener('click', function() {
 fetch('games/lot-nad-wisla.d64', { method: 'HEAD' }).then(function(response) {
   if (!response.ok) return;
   featured.hidden = false;
-  document.getElementById('game-note').textContent = 'Gra jest dostępna. Kliknij, aby uruchomić ją online.';
+  document.getElementById('game-note').textContent = 'Dostępna jest wersja demonstracyjna I1.4. Zobacz opis gry lub uruchom ją tutaj.';
+  if (!started) featured.hidden = false;
 }).catch(function() {});
 
 featured.addEventListener('click', async function() {
@@ -124,6 +125,9 @@ featured.addEventListener('click', async function() {
   }
 });
 
+// Bezpośrednie uruchomienie gry z przycisku GRAJ ONLINE.
+// Gra korzysta z portu 2 ($DC00). Nie zmieniamy ustawień rdzenia VICE.
 if (new URLSearchParams(location.search).get('game') === 'lot-nad-wisla') {
-  document.getElementById('game-note').scrollIntoView({ block: 'center' });
+  joystickPort.value = '2';
+  startGame(null, 'games/lot-nad-wisla.d64', 'LOT NAD WISLA - DEMO I1.4');
 }
