@@ -5,3 +5,9 @@
 .compat-label input { vertical-align:middle; margin-right:7px; accent-color:#f86bce; }
 .keyboard-diagnostic { margin:12px 0; padding:12px; font-size:12px; line-height:1.6; color:#e5ddfa; background:#24203c; border:1px solid #6b608d; border-radius:6px; }
 .keyboard-diagnostic.keyboard-ok { background:#133a35; border-color:#36ab96; color:#baf9ea; }
+
+/* Wybór portu joysticka: tylko interfejs, bez ingerencji w VICE. */
+.joyport-label{display:block;font-size:11px;font-weight:700;letter-spacing:1px;color:#e8d1fa;margin:18px 0 9px}
+.joyport-select{width:100%;padding:12px 11px;border:1px solid #716187;border-radius:5px;background:#24213c;color:#f4efff;font:13px 'Space Grotesk',Arial,sans-serif}
+.joyport-select:focus-visible{outline:2px solid #55efe4;outline-offset:2px}
+.joyport-help{margin:9px 0 14px;font-size:12px!important;line-height:1.6!important;color:#afa8cb!important}
