@@ -3,6 +3,7 @@
 const input = document.getElementById('romFile');
 const status = document.getElementById('notice');
 const featured = document.getElementById('featuredButton');
+const launchFeatured = document.getElementById('launchFeatured');
 const frame = document.getElementById('emuFrame');
 const legacy = document.getElementById('compatMode');
 const joystickPort = document.getElementById('joystickPort');
@@ -143,6 +144,10 @@ fetch('games/lot-nad-wisla.d64', { method: 'HEAD' }).then(function(response) {
   if (!started) featured.hidden = false;
 }).catch(function() {});
 
+launchFeatured.addEventListener('click', function() {
+  if (!started) featured.click();
+});
+
 featured.addEventListener('click', async function() {
   const url = 'games/lot-nad-wisla.d64';
   if (joystickPort.value !== '1') {
@@ -163,9 +168,14 @@ featured.addEventListener('click', async function() {
   }
 });
 
-// Bezpośrednie uruchomienie gry z przycisku GRAJ ONLINE.
-// Gra korzysta z portu 2 ($DC00). Nie zmieniamy ustawień rdzenia VICE.
+// Wejście przez GRAJ ONLINE przygotowuje grę, ale nie uruchamia jej od razu.
+// Dzięki temu użytkownik zdąży wybrać tryb zgodności przed załadowaniem VICE.
 if (new URLSearchParams(location.search).get('game') === 'lot-nad-wisla') {
   joystickPort.value = '2';
-  startGame(null, 'games/lot-nad-wisla.d64', 'LOT NAD WISLA - DEMO I1.4');
+  featured.hidden = false;
+  launchFeatured.hidden = false;
+  document.getElementById('launchHint').textContent =
+    'WYBIERZ TRYB ZGODNOŚCI PO PRAWEJ, A POTEM URUCHOM GRĘ';
+  status.textContent =
+    'LOT NAD WISŁĄ jest gotowy. Możesz zaznaczyć Tryb zgodności, a następnie kliknąć URUCHOM LOT NAD WISŁĄ.';
 }
