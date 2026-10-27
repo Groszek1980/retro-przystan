@@ -5,6 +5,23 @@ const status = document.getElementById('notice');
 const featured = document.getElementById('featuredButton');
 const frame = document.getElementById('emuFrame');
 const legacy = document.getElementById('compatMode');
+const joystickPort = document.getElementById('joystickPort');
+
+// Działający rdzeń VICE rozpoznaje dopisek _j1 w nazwie pliku.
+// Tworzymy tylko nowy obiekt File z tymi samymi bajtami: nie zmieniamy danych gry.
+function gameNameForPort(filename, port) {
+  const dot = filename.lastIndexOf('.');
+  if (dot < 1) return filename;
+  const base = filename.slice(0, dot).replace(/_j[12]$/i, '');
+  const ext = filename.slice(dot);
+  return base + (port === '1' ? '_j1' : '') + ext;
+}
+function fileForPort(file, port) {
+  const renamed = gameNameForPort(file.name, port);
+  if (renamed === file.name) return file;
+  return new File([file], renamed, {type: file.type, lastModified: file.lastModified});
+}
+
 const diagnostic = document.getElementById('keyDiagnostic');
 document.getElementById('focusKeyboard').addEventListener('click', function() {
   if (frame.hidden) {
@@ -32,6 +49,7 @@ function startGame(file, url, name) {
   input.disabled = true;
   featured.disabled = true;
   legacy.disabled = true;
+  joystickPort.disabled = true;
   document.getElementById('placeholder').hidden = true;
   frame.hidden = false;
   status.textContent = 'Przygotowywanie emulatora: ' + name + '…';
@@ -68,7 +86,12 @@ input.addEventListener('change', function() {
     return;
   }
   // Plik File zachowuje rozszerzenie; blob URL go nie zachowuje.
-  startGame(file, null, file.name);
+  try {
+    const prepared = fileForPort(file, joystickPort.value);
+    startGame(prepared, null, prepared.name);
+  } catch (error) {
+    status.textContent = 'Nie udało się przygotować pliku dla wybranego portu. Spróbuj zmienić nazwę ręcznie.';
+  }
 });
 
 document.getElementById('resetButton').addEventListener('click', function() {
@@ -81,8 +104,24 @@ fetch('games/lot-nad-wisla.d64', { method: 'HEAD' }).then(function(response) {
   document.getElementById('game-note').textContent = 'Gra jest dostępna. Kliknij, aby uruchomić ją online.';
 }).catch(function() {});
 
-featured.addEventListener('click', function() {
-  startGame(null, 'games/lot-nad-wisla.d64', 'LOT NAD WISLA');
+featured.addEventListener('click', async function() {
+  const url = 'games/lot-nad-wisla.d64';
+  if (joystickPort.value !== '1') {
+    startGame(null, url, 'LOT NAD WISLA');
+    return;
+  }
+  featured.disabled = true;
+  status.textContent = 'Przygotowywanie pliku gry dla portu 1…';
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Błąd pobierania');
+    const blob = await response.blob();
+    const f = new File([blob], gameNameForPort('lot-nad-wisla.d64', '1'), { type:blob.type });
+    startGame(f, null, f.name);
+  } catch(error) {
+    featured.disabled = false;
+    status.textContent = 'Nie udało się wczytać gry z serwera. Spróbuj ponownie lub wybierz plik z dysku.';
+  }
 });
 
 if (new URLSearchParams(location.search).get('game') === 'lot-nad-wisla') {
