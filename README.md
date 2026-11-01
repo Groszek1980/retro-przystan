@@ -1,33 +1,29 @@
-# RETRO PRZYSTAŃ · Commodore 64
+# RETRO PRZYSTAŃ — portal retro i gry Commodore 64
 
-Pierwsza wersja strony poświęconej komputerom retro i naszym grom na Commodore 64.
+Strona: https://groszek1980.github.io/retro-przystan/
 
 ## Zawartość
 
-- `index.html` — strona główna, katalog gier i informacje o projekcie.
-- `player.html` i `player.js` — emulator Commodore 64 oparty na [EmulatorJS](https://emulatorjs.org/docs/systems/commodore-64/).
-- `style.css` — responsywna oprawa w klimacie komputerów 8-bitowych.
-- `games/` — miejsce na własne pliki gier `.d64` i `.prg`.
-- `.nojekyll` — wyłącza przetwarzanie Jekyll przy publikacji z gałęzi na GitHub Pages.
+- `index.html` — strona główna, katalog gier i skróty do działów.
+- `gry-groszka.html` — projekty „LOT NAD WISŁĄ” i konwersja „MISJA”.
+- `komputery-retro.html` — profile Commodore 64, Atari 65XE i Amigi 1200.
+- `lot-nad-wisla.html` — opis gry, grafika tytułowa i pobranie demo I1.4.
+- `player.html`, `player.js`, `emulator-frame.html` — emulator C64 oparty na EmulatorJS/VICE, obsługujący dwa porty joysticka i tryb zgodności.
+- `style.css`, `player-fix.css` — responsywna szata graficzna.
+- `games/lot-nad-wisla.d64` — grywalne demo I1.4.
+- `.nojekyll` — wyłączenie Jekylla w GitHub Pages.
 
-## Publikowanie przez GitHub Pages
+## Publikacja
 
-Repozytorium: `Groszek1980/retro-przystan` (publiczne). Wgraj wszystkie pliki do katalogu głównego gałęzi `main` (sam `index.html` musi być w głównym katalogu repozytorium). Następnie otwórz **Settings → Pages → Build and deployment** i ustaw **Deploy from a branch**, gałąź **main**, katalog **/(root)**; kliknij **Save**.
+Repozytorium `Groszek1980/retro-przystan`, gałąź `main`, katalog `/(root)` w GitHub Pages.
 
-Docelowy adres strony: https://groszek1980.github.io/retro-przystan/
+Jeśli GitHub Pages zgłosi błąd "due to in progress deployment", najpierw sprawdź, czy wcześniejsze wdrożenie zostało zakończone; następnie uruchom nowe wdrożenie. Nie wymaga to zmiany aplikacji.
 
-## Jak uruchomić lokalnie
+## Uruchomienie lokalne
 
-W tym folderze uruchom `python -m http.server 8000` (Python 3), następnie wejdź na http://localhost:8000. Nie otwieraj pliku bezpośrednio przez `file://`.
+Z katalogu projektu: `python -m http.server 8000`, następnie `http://localhost:8000`.
+EmulatorJS pobiera rdzeń przez internet. Uruchamiaj tylko gry, do których masz prawa.
 
-## Jak dodać grę „LOT NAD WISLA”
+## Stabilność
 
-Po przetestowaniu i wybraniu wersji do publikacji skopiuj własny plik dyskietki do `games/lot-nad-wisla.d64`. Przycisk startu gry na podstronie emulatora pojawi się automatycznie, gdy plik będzie dostępny w opublikowanej witrynie.
-
-## Ważne
-
-- Gry `LOT NAD WISLA` **nie dołączono** do tej wersji prototypu.
-- EmulatorJS jest pobierany z zewnętrznego CDN. Rozruch emulatora należy jeszcze zweryfikować w przeglądarce z rzeczywistym plikiem PRG/D64.
-- Przesłany przez użytkownika plik jest wczytywany lokalnie jako adres `blob:`. Nie wysyłamy go na serwer witryny.
-- Publikuj tylko własne gry lub pliki, do których masz prawo.
-- Osobny projekt `lot-nad-wisla` z kodem źródłowym gry pozostaje prywatny.
+Stabilne kopie działającego emulatora są przechowywane w osobnych gałęziach GitHuba. Przy modyfikowaniu treści działów nie zmieniaj plików emulatora ani D64 bez osobnych testów.
