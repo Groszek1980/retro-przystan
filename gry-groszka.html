@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#11112b">
+  <meta name="description" content="Gry Groszka — autorskie gry i konwersje na Commodore 64. LOT NAD WISŁĄ do gry online i projekt MISJA z Atari 65XE.">
+  <title>GRY GROSZKA — RETRO PRZYSTAŃ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar wrap">
+    <a class="logo" href="index.html"><span class="logo-mark">▣</span> RETRO<span class="accent">PRZYSTAŃ</span><small>8-BIT GAME LAB</small></a>
+    <nav aria-label="Menu"><a href="index.html">STRONA GŁÓWNA</a><a href="gry-groszka.html" aria-current="page">GRY GROSZKA</a><a href="player.html">EMULATOR</a></nav>
+  </header>
+  <main>
+    <section class="wrap groszek-hero">
+      <span class="eyebrow">AUTORSKIE PRODUKCJE I KONWERSJE 8-BIT</span>
+      <h1>GRY <span class="accent">GROSZKA</span></h1>
+      <p>Nowe gry i powroty do klasyków — tworzone dla Commodore 64, testowane i dopracowywane krok po kroku. Tutaj znajdziesz nasze projekty oraz informacje o ich aktualnym stanie.</p>
+      <div class="groszek-highlights" aria-label="Stan kolekcji">
+        <div><strong>02</strong><span>PROJEKTY</span></div>
+        <div><strong>01</strong><span>DEMO ONLINE</span></div>
+        <div><strong>C64</strong><span>PLATFORMA DOCELOWA</span></div>
+      </div>
+    </section>
+
+    <section class="wrap groszek-section" aria-labelledby="kolekcja-title">
+      <div class="section-head">
+        <div><span class="eyebrow">BIBLIOTEKA GIER</span><h2 id="kolekcja-title">NASZE <span class="accent">PROJEKTY</span></h2></div>
+        <span class="pill">ROZWIJANA KOLEKCJA</span>
+      </div>
+      <div class="groszek-grid">
+        <article class="groszek-entry" id="lot-nad-wisla">
+          <div class="groszek-preview">
+            <img src="images/lot-nad-wisla-tytul.png" alt="Oryginalna grafika tytułowa LOT NAD WISŁĄ" width="960" height="600">
+          </div>
+          <div class="groszek-content">
+            <div class="meta"><span>COMMODORE 64 / STRZELANKA</span><span class="status groszek-ready">DEMO ONLINE</span></div>
+            <h3>LOT NAD WISŁĄ</h3>
+            <p>Autorska gra lotnicza inspirowana klasycznymi strzelankami 8-bitowymi. Leć nad przewijaną Wisłą, unikaj brzegów, zestrzeliwuj przeciwników i pilnuj paliwa. Czeka sześć etapów i okręt na finał.</p>
+            <p class="groszek-version"><strong>Dostępna na stronie:</strong> grywalna wersja demonstracyjna I1.4. Nowsze wersje powstają osobno.</p>
+            <div class="card-actions">
+              <a class="btn primary" href="player.html?game=lot-nad-wisla">▶ GRAJ ONLINE</a>
+              <a class="btn ghost" href="lot-nad-wisla.html">OPIS GRY</a>
+            </div>
+            <p class="groszek-credit">Twórcy: Artur Goch „Groszek” i ChatGPT.</p>
+          </div>
+        </article>
+        <article class="groszek-entry" id="misja">
+          <div class="groszek-preview misja-art groszek-misja-preview" role="img" aria-label="Dekoracyjna, stylizowana grafika retro. Nie jest to zrzut ekranu gry Misja.">
+            <span class="groszek-misja-platform">ATARI 65XE <b>→</b> COMMODORE 64</span>
+            <span class="groszek-misja-symbol" aria-hidden="true">◆</span>
+            <span class="groszek-misja-title">MISJA</span>
+            <span class="groszek-misja-caption">KONWERSJA W PRZYGOTOWANIU</span>
+          </div>
+          <div class="groszek-content">
+            <div class="meta"><span>ATARI 65XE → C64 / KONWERSJA</span><span class="status">W PRODUKCJI</span></div>
+            <h3>MISJA</h3>
+            <p>Pracujemy nad przeniesieniem „Misji” z Atari 65XE na Commodore 64. Naszym celem jest wierne zachowanie charakteru oryginału — plansz, mechaniki i sposobu gry — przy wykorzystaniu możliwości graficznych i dźwiękowych C64.</p>
+            <p class="groszek-version"><strong>Stan projektu:</strong> konwersja jest rozwijana i testowana w Denise. Nie opublikowaliśmy jeszcze wersji do uruchomienia online.</p>
+            <p class="groszek-credit">Autorzy konwersji: Artur Goch „Groszek” i ChatGPT.</p>
+            <div class="groszek-unavailable" aria-label="Gra jeszcze niedostępna do uruchomienia">GRAJ ONLINE — WKRÓTCE</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap groszek-outro">
+      <div><span class="eyebrow">8-BIT GAME LAB</span><h2>STARE KOMPUTERY.<br><span class="accent">NOWE GRY.</span></h2><p>Do działu będziemy dodawać kolejne produkcje, gdy pojawią się ich wersje gotowe do prezentacji. Każda działająca gra otrzyma przycisk „GRAJ ONLINE”.</p></div>
+      <a class="btn ghost" href="index.html">← WRÓĆ NA STRONĘ GŁÓWNĄ</a>
+    </section>
+  </main>
+  <footer class="wrap footer"><span>© 2026 RETRO PRZYSTAŃ · ARTUR GOCH „GROSZEK” & CHATGPT</span><span>MADE WITH ♥ FOR 8-BIT COMPUTERS</span></footer>
+</body>
+</html>
