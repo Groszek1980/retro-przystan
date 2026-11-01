@@ -72,3 +72,67 @@
 .groszek-outro .btn{flex-shrink:0}
 @media(max-width:900px){.groszek-grid{grid-template-columns:1fr}.groszek-outro{align-items:flex-start;flex-direction:column}.groszek-hero{padding-top:53px}}
 @media(max-width:500px){.groszek-preview{height:215px}.groszek-content{padding:20px}.groszek-misja-title{font-size:26px}.groszek-misja-platform{font-size:10px}.groszek-hero>p{font-size:15px}.groszek-highlights>div{min-width:95px;flex:1}}
+
+/* Dzial KOMPUTERY RETRO: ilustracje sa autorskimi dekoracjami CSS, nie zdjeciami sprzetu. */
+.retro-feature-section{background:linear-gradient(180deg,#17182f 0%,#0f1027 100%);border-block:1px solid #34304f}
+.retro-teaser-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:30px}
+.retro-teaser{display:flex;flex-direction:column;gap:14px;padding:25px 23px;border-radius:10px;border:1px solid #4c4665;background:linear-gradient(140deg,#27203f,#171d37);transition:transform .16s,border-color .16s}
+.retro-teaser:hover,.retro-teaser:focus-visible{transform:translateY(-4px);border-color:var(--cyan)}
+.retro-teaser-year{font-size:11px;color:var(--cyan);font-weight:700;letter-spacing:2px}
+.retro-teaser strong{font:13px/1.8 'Press Start 2P',monospace}
+.retro-teaser>span:not(.retro-teaser-year):not(.retro-teaser-link){color:#c1bbd8;font-size:12px}
+.retro-teaser-link{font-size:10px;color:var(--pink);font-weight:800;letter-spacing:1px;margin-top:auto}
+.retro-detail-page{padding:65px 0 85px}
+.retro-detail-hero{text-align:center;padding:17px 0 52px}
+.retro-detail-hero h1{font:clamp(24px,3.7vw,42px)/1.7 'Press Start 2P',monospace;margin:22px 0}
+.retro-detail-hero>p{color:#c3bfd9;line-height:1.85;font-size:17px;max-width:840px;margin:0 auto}
+.retro-era-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:28px auto 0}
+.retro-era-strip span{padding:11px 13px;color:#b7b6d7;border:1px solid #4e4869;background:#1a1b3b;border-radius:20px;font-size:11px;letter-spacing:.6px}
+.retro-machines{display:flex;flex-direction:column;gap:26px}
+.retro-machine{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);overflow:hidden;border:1px solid #413c5c;border-radius:11px;background:#171934;scroll-margin-top:25px}
+.retro-machine-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:350px;overflow:hidden;isolation:isolate}
+.retro-theme-c64{background:radial-gradient(circle at 50% 48%,#3f4a89,#1c2749 67%,#111630)}
+.retro-theme-atari{background:radial-gradient(circle at 50% 50%,#6c4768,#312448 66%,#18132f)}
+.retro-theme-amiga{background:radial-gradient(circle at 50% 50%,#366d7d,#20374c 65%,#111d32)}
+.retro-machine-visual:before{content:'';position:absolute;inset:0;opacity:.35;z-index:-1;background:repeating-linear-gradient(to bottom,transparent 0 5px,#ffffff09 6px)}
+.retro-machine-year{position:absolute;top:23px;left:25px;font:13px 'Press Start 2P',monospace;color:#e1d6fb}
+.retro-computer-shell{position:relative;width:min(76%,355px);height:171px;background:linear-gradient(#d7c9ad 0%,#b7a98f 80%,#8a8073);border:2px solid #8e826d;border-bottom:12px solid #888072;border-radius:12px 12px 17px 17px;box-shadow:5px 17px 0 #0004,0 25px 40px #0006;transform:perspective(450px) rotateX(11deg) rotateZ(-5deg);padding:16px 15px}
+.retro-computer-top{display:flex;align-items:center;justify-content:space-between;gap:10px;height:37px}
+.retro-computer-logo{font:bold 12px/1.3 'Space Grotesk',sans-serif;color:#53483f;letter-spacing:1px}
+.retro-computer-led{background:#2dd8ad;width:9px;height:9px;border-radius:50%;box-shadow:0 0 10px #26d7aa}
+.retro-keyboard{height:77px;margin-top:6px;border:4px solid #827769;border-radius:5px;background:
+repeating-linear-gradient(to right,transparent 0 16px,#6c6256 16px 18px),
+repeating-linear-gradient(to bottom,#483f3b 0 13px,#877867 13px 16px);box-shadow:inset 1px 2px 3px #0007}
+.retro-spacebar{position:absolute;bottom:18px;left:31%;right:29%;height:11px;border-radius:3px;background:#817464;box-shadow:0 2px 2px #0004}
+.retro-theme-atari .retro-computer-shell{background:linear-gradient(#c4c5c8,#929599);border-color:#73767d;border-bottom-color:#77787d}
+.retro-theme-atari .retro-computer-logo{color:#494c55;font-weight:800}
+.retro-theme-atari .retro-keyboard{border-color:#545760;background:repeating-linear-gradient(to right,transparent 0 16px,#373b40 16px 18px),repeating-linear-gradient(to bottom,#272b32 0 13px,#6b6d71 13px 16px)}
+.retro-theme-amiga .retro-computer-shell{background:linear-gradient(#e5e5e0,#b9bab7);border-color:#aaaaa6;border-bottom-color:#92928e}
+.retro-theme-amiga .retro-computer-logo{color:#3c4952}
+.retro-theme-amiga .retro-keyboard{border-color:#9fa29e;background:repeating-linear-gradient(to right,transparent 0 16px,#999b98 16px 18px),repeating-linear-gradient(to bottom,#b5b8b8 0 13px,#565d60 13px 16px)}
+.retro-machine-pixel-mark{position:absolute;bottom:23px;right:24px;color:#b8b7f1;font:10px 'Press Start 2P',monospace;letter-spacing:1px}
+.retro-machine-info{padding:30px 33px}
+.retro-machine-info h2{font:clamp(17px,2vw,25px)/1.8 'Press Start 2P',monospace;margin:16px 0}
+.retro-machine-info>p{font-size:14px;color:#c6bfdc;line-height:1.85}
+.retro-spec-list{margin:20px 0 22px;border-top:1px solid #42405f}
+.retro-spec-list>div{display:flex;align-items:flex-start;gap:20px;justify-content:space-between;padding:10px 0;border-bottom:1px solid #383854;font-size:13px}
+.retro-spec-list dt{font-weight:700;color:#9da1c8;min-width:105px}
+.retro-spec-list dd{color:#ece8f8;margin:0;text-align:right}
+.retro-machine-actions{display:flex;flex-wrap:wrap;gap:10px}
+.retro-machine-actions .btn{font-size:11px;padding:13px 14px}
+.retro-table-section{padding:72px 0 30px}
+.retro-table-section h2,.retro-lab-section h2{font:clamp(18px,2.5vw,26px)/1.7 'Press Start 2P',monospace;margin:19px 0 25px}
+.retro-table-scroll{overflow-x:auto;border-radius:10px;border:1px solid #48415f}
+.retro-compare-table{border-collapse:collapse;min-width:560px;width:100%;background:#171a37;font-size:14px}
+.retro-compare-table th,.retro-compare-table td{text-align:left;padding:16px 15px;border-bottom:1px solid #3b3858}
+.retro-compare-table thead th{font-size:12px;color:var(--cyan);background:#23203e;letter-spacing:.7px}
+.retro-compare-table tbody th{font-size:12px;color:#b5aed2;font-weight:700}
+.retro-compare-table td{color:#e2ddef}
+.retro-compare-table tr:last-child th,.retro-compare-table tr:last-child td{border-bottom:0}
+.retro-footnote{font-size:12px;color:#a5a0ba;line-height:1.8}
+.retro-lab-section{display:flex;justify-content:space-between;align-items:center;gap:30px;padding:34px 32px;margin-top:45px;background:linear-gradient(130deg,#292142,#171d36);border:1px solid #53456d;border-radius:11px}
+.retro-lab-section p{color:#bbb6d0;line-height:1.8;max-width:720px}
+.retro-lab-section>.btn{flex-shrink:0}
+@media(max-width:1100px){.topbar nav{gap:15px}.topbar nav a{font-size:11px}}
+@media(max-width:850px){.retro-machine{grid-template-columns:1fr}.retro-machine-visual{min-height:280px}.retro-teaser-grid{grid-template-columns:1fr}.retro-lab-section{flex-direction:column;align-items:flex-start}}
+@media(max-width:560px){.retro-detail-page{padding-top:38px}.retro-detail-hero{padding-bottom:32px}.retro-detail-hero>p{font-size:15px}.retro-machine-visual{min-height:240px}.retro-machine-info{padding:24px 18px}.retro-computer-shell{height:143px;padding:10px}.retro-keyboard{height:68px}.retro-spacebar{bottom:13px}.retro-machine-info h2{font-size:18px}.retro-spec-list>div{font-size:12px}.retro-spec-list dt{min-width:90px}.retro-lab-section{padding:25px 17px}.retro-teaser-grid{gap:12px}}
