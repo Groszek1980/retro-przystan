@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#11112b">
+<meta name="description" content="Commodore 64: diagnostyka czarnego ekranu krok po kroku. Bezpieczne pomiary +5 V DC i 9 V AC, sprawdzanie płyty 250407/250425/250466 i różnice 250469.">
+<title>C64 — CZARNY EKRAN: DIAGNOSTYKA MULTIMETREM | RETRO PRZYSTAŃ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="warsztat-retro.css"><link rel="stylesheet" href="poradnik-c64.css">
+</head>
+<body>
+<header class="topbar wrap">
+<a class="logo" href="index.html"><span class="logo-mark">▣</span> RETRO<span class="accent">PRZYSTAŃ</span><small>8-BIT GAME LAB</small></a>
+<nav aria-label="Menu"><a href="index.html">STRONA GŁÓWNA</a><a href="warsztat-retro.html">← WARSZTAT RETRO</a><a href="komputery-retro.html">KOMPUTERY</a><a href="aktualnosci.html">AKTUALNOŚCI</a></nav>
+</header>
+<main class="wrap c64-guide-page">
+<header class="c64-guide-hero">
+<span class="eyebrow">WARSZTAT RETRO / COMMODORE 64 / PORADNIK NR 01</span>
+<h1>C64: <span class="accent">CZARNY EKRAN</span></h1>
+<p>Jak znaleźć przyczynę, nie wymieniając układów w ciemno? Zaczynamy od sygnału wideo i starego zasilacza, następnie sprawdzamy właściwe napięcia na płycie, a dopiero później reset i układy logiczne.</p>
+<div class="c64-guide-tags"><span>MULTIMETR</span><span>ZASILANIE</span><span>REV. 250407 / 250425 / 250466 / 250469</span></div>
+<nav class="c64-guide-toc" aria-label="Spis treści poradnika">
+<a href="#bezpieczenstwo">BEZPIECZEŃSTWO</a><a href="#rewizje">REWIZJA PŁYTY</a><a href="#zasilacz">ZASILACZ</a><a href="#plyta">POMIARY NA PŁYCIE</a><a href="#wyniki">WYNIKI</a><a href="#zrodla">ŹRÓDŁA</a>
+</nav>
+</header>
+
+<section class="c64-guide-warning" id="bezpieczenstwo" aria-labelledby="c64-safety-h">
+<h2 id="c64-safety-h">! ZANIM DOTKNIESZ MIERNIKA</h2>
+<p><strong>Nigdy nie używaj podejrzanego oryginalnego „czarnego klocka” bez testu pod obciążeniem.</strong> Awaria jego stabilizatora może podać zbyt wysokie napięcie na układy komputera. Nie otwieraj obudowy zasilacza sieciowego — po odłączeniu wtyczki mogą w nim pozostawać niebezpieczne napięcia.</p>
+<p>Przed przekładaniem przewodów, wpinaniem chwytaków, pomiarami rezystancji i otwieraniem C64 odłącz zasilanie sieciowe. Nie używaj multimetru w trybie pomiaru prądu (A) do styków napięciowych. Przy pomiarze pod napięciem unikaj dotykania sąsiednich wyprowadzeń. Jeżeli nie masz izolowanego adaptera i pewnego punktu masy, ogranicz się do sprawdzeń bez zasilania i pomocy serwisanta.</p>
+</section>
+
+<section class="c64-guide-section" id="start">
+<div class="c64-guide-section-header"><span class="c64-guide-section-no">01</span><div><span class="eyebrow">BEZ DEMONTAŻU PŁYTY</span><h2>WYKLUCZ PROSTE PRZYCZYNY</h2></div></div>
+<ol class="c64-guide-steps">
+<li>Sprawdź, czy monitor lub telewizor ma wybrane właściwe wejście i czy kabel audio/wideo jest sprawny. Jeśli to możliwe, wypróbuj drugi przewód i ekran.</li>
+<li>Odłącz od <strong>wyłączonego</strong> C64 kartridże, rozszerzenia, stację, magnetofon i dodatkowe kontrolery; pozostaw tylko zasilanie i obraz.</li>
+<li>Zapisz objaw: brak diody POWER, dioda działa bez obrazu, śnieżenie, kolorowe znaki czy zanik obrazu po rozgrzaniu. To nie są te same awarie.</li>
+<li>Sprawdź oznaczenie zasilacza oraz numer <strong>ASSY</strong> nadrukowany na płycie. Nie opieraj diagnostyki wyłącznie na kształcie obudowy C64.</li>
+</ol>
+</section>
+
+<section class="c64-guide-section" id="rewizje">
+<div class="c64-guide-section-header"><span class="c64-guide-section-no">02</span><div><span class="eyebrow">KLUCZOWA RÓŻNICA</span><h2>USTAL REWIZJĘ PŁYTY</h2></div></div>
+<p>Te same oznaczenia U7 lub U19 mogą wskazywać zupełnie inne układy zależnie od płyty. Wartości w części o pomiarach na układach są przeznaczone <strong>tylko dla długich płyt</strong>.</p>
+<div class="c64-table-wrap"><table class="c64-guide-table">
+<thead><tr><th scope="col">ASSY na płycie</th><th scope="col">Odmiana</th><th scope="col">CPU / VIC-II</th><th scope="col">Co mierzyć?</th></tr></thead>
+<tbody>
+<tr><th scope="row">326298 / 250407 / 250425</th><td>Długie płyty</td><td>U7 / U19</td><td>Pomiar 5 V, 5 V CAN i 12 V według tabeli poniżej</td></tr>
+<tr><th scope="row">250466</th><td>Późna długa płyta</td><td>U7 / U19</td><td>Jak wyżej, ale inna organizacja RAM — sprawdź schemat</td></tr>
+<tr><th scope="row">250469</th><td>Krótka płyta „E” / C64C</td><td>U6 / U7</td><td><strong>Nie stosuj tabeli z 12 V dla U19.</strong> Inny obwód zasilania VIC-II</td></tr>
+</tbody></table></div>
+<p class="c64-guide-note">Zwróć uwagę także na szczegółową rewizję oraz oznaczenie układów, zwłaszcza w sprzęcie po wcześniejszych naprawach. Na płycie 250469 VIC-II pracuje z napięciem 5 V w miejscu, gdzie starsze konstrukcje używają 12 V.</p>
+</section>
+
+<section class="c64-guide-section" id="zasilacz">
+<div class="c64-guide-section-header"><span class="c64-guide-section-no">03</span><div><span class="eyebrow">ZAWSZE PRZED KOMPUTEREM</span><h2>SPRAWDŹ ZASILACZ C64</h2></div></div>
+<p>Zasilacz Commodore 64 ma dwa oddzielne wyjścia: <strong>+5 V napięcia stałego (DC)</strong> i <strong>9 V napięcia przemiennego (AC)</strong>. Testujemy go <strong>odłączonego od komputera</strong>, najlepiej na izolowanym adapterze z obciążeniem próbnym.</p>
+<figure class="c64-guide-figure">
+<img src="images/poradniki/c64-zasilacz-pomiary.svg" alt="Schemat funkcjonalny: test zasilacza bez C64 — pin 5 plus i pin 2 masa to pomiar 5 V DC, piny 6 i 7 to pomiar 9 V AC" width="980" height="460">
+<figcaption>Rys. 1. Schemat połączeń pomiarowych, a <strong>nie</strong> fizyczny widok gniazda DIN. Położenie styków musi być zweryfikowane z dokumentacją adaptera.</figcaption>
+</figure>
+<div class="c64-guide-measurements">
+<div class="c64-measure-card"><span>MIERNIK V⎓ / DC</span><strong>PIN 5 (+) — PIN 2 (GND)</strong><p>Około <b>5,0 V DC</b>. Czerwona sonda do +5 V, czarna do masy, przez izolowany adapter.</p></div>
+<div class="c64-measure-card"><span>MIERNIK V~ / AC</span><strong>PIN 6 — PIN 7</strong><p>Nominalnie <b>9 V AC</b>. Obie sondy między dwoma stykami AC; nie mierz AC względem masy.</p></div>
+</div>
+<ol class="c64-guide-steps">
+<li>Przy odłączonej sieci podłącz wtyk zasilacza do <strong>gotowego, właściwie izolowanego testera DIN 7</strong>. Nie opieraj luźnych sond o sąsiednie styki.</li>
+<li>Podłącz obciążenie próbne odpowiednie do napięć i prądu zasilacza. Ray Carlsen opisuje tester z dwiema odpowiednimi żarówkami 12 V, po jednej dla każdego wyjścia. Elementy obciążenia mogą mocno się nagrzewać.</li>
+<li>Włącz zasilacz i sprawdź +5 V DC oraz obecność 9 V AC. Pozostaw go pod kontrolą na około <strong>30 minut</strong> z obciążeniem; obserwuj, czy +5 V nie wzrasta w miarę nagrzewania.</li>
+<li>Jeśli wyjście DC przekracza około <strong>5,2 V</strong>, zasilacz jest podejrzany i <strong>nie wolno</strong> podłączać go do komputera. Podobnie przy niestabilnych lub zbyt niskich odczytach.</li>
+</ol>
+<div class="c64-table-wrap"><table class="c64-guide-table">
+<thead><tr><th scope="col">+5 V DC pod obciążeniem</th><th scope="col">Interpretacja orientacyjna</th></tr></thead>
+<tbody>
+<tr><th scope="row">Około 4,95–5,10 V</th><td>Zakres typowy dla sprawnego, stabilnego zasilacza.</td></tr>
+<tr><th scope="row">Poniżej 4,9 V</th><td>Podejrzanie nisko — nie zasilaj komputera, zbadaj zasilacz.</td></tr>
+<tr><th scope="row">5,10–5,20 V</th><td>Wymaga ostrożnej weryfikacji, nie traktuj pojedynczego odczytu jako pełnego testu.</td></tr>
+<tr><th scope="row">Powyżej około 5,2 V</th><td><strong>ZATRZYMAJ TEST.</strong> Ryzyko uszkodzenia C64.</td></tr>
+</tbody></table></div>
+<p class="c64-guide-note">Bez obciążenia zasilacz może pokazać prawidłowe 5 V mimo usterki. Odczyt 9 V AC również zależy od obciążenia i rodzaju transformatora. W razie niepewności wybierz sprawdzony, zgodny zasilacz zastępczy. <a href="https://portcommodore.com/rcarlsen/cbm/c64/C64%20PS/pstester.txt" target="_blank" rel="noopener noreferrer">Źródło: Ray Carlsen — tester zasilacza ↗</a></p>
+</section>
+
+<section class="c64-guide-section" id="plyta">
+<div class="c64-guide-section-header"><span class="c64-guide-section-no">04</span><div><span class="eyebrow">DOPIERO PO SPRAWDZENIU ZASILACZA</span><h2>POMIARY NA DŁUGIEJ PŁYCIE</h2></div></div>
+<p>Ta tabela dotyczy starszych płyt <strong>326298, 250407, 250425 i 250466</strong>, z procesorem oznaczonym U7 i VIC-II jako U19. Używaj jej tylko wtedy, gdy odczytałeś numer ASSY i potwierdziłeś model układu w schemacie.</p>
+<figure class="c64-guide-figure">
+<img src="images/poradniki/c64-uklady-piny.svg" alt="Rysunek poglądowy pinów DIP: U5 ROM pin 24 to +5 V, U19 VIC-II pin 40 to +5 V CAN i pin 13 to +12 V, U7 CPU pin 40 to RESET. Tylko długie płyty." width="1050" height="510">
+<figcaption>Rys. 2. Numery wyprowadzeń układów, <strong>nie rozmieszczenie elementów na laminacie</strong>. Wycięcie orientacyjne jest na górze każdego układu; potwierdź pin 1 i schemat przed podłączeniem miernika.</figcaption>
+</figure>
+<div class="c64-table-wrap"><table class="c64-guide-table">
+<thead><tr><th scope="col">Punkt dodatni</th><th scope="col">Oczekiwane DC</th><th scope="col">Co mówi pomiar</th></tr></thead>
+<tbody>
+<tr><th scope="row">U5 (ROM znaków), pin 24</th><td>≈ +5 V</td><td>Główne zasilanie logiki</td></tr>
+<tr><th scope="row">U19 (VIC-II), pin 40</th><td>≈ +5 V</td><td>Osobna linia +5 V CAN</td></tr>
+<tr><th scope="row">U19 (VIC-II), pin 13</th><td>≈ +12 V</td><td>Linia 12 V w starszych układach VIC-II</td></tr>
+<tr><th scope="row">U7 (6510), pin 40</th><td>≈ +5 V po starcie</td><td>Sygnał RESET powinien przestać być w stanie niskim</td></tr>
+</tbody></table></div>
+<p><strong>Bezpieczna kolejność:</strong> przy odłączonym zasilaniu sprawdź ciągłość do prawdziwego punktu GND według schematu, umocuj izolowany chwytak masy i chwytak pomiarowy na jednym wyprowadzeniu. Dopiero wówczas uruchom komputer na sprawdzonym zasilaczu i odczytaj DC. <strong>Wyłącz i odłącz zasilanie przed przeniesieniem chwytaka</strong> do kolejnego punktu.</p>
+<p class="c64-guide-note">Zwykły multimetr nie pokaże wiarygodnie przebiegu impulsu RESET przy samym włączeniu ani sygnałów zegarowych około 1 MHz. Odczyt około 5 V na linii RESET po rozruchu to jedynie kontrola stanu ustalonego; pełna diagnostyka resetu wymaga sondy logicznej lub oscyloskopu.</p>
+<aside class="c64-guide-shortboard">
+<h3>OSOBNA ŚCIEŻKA DLA ASSY 250469</h3>
+<p>Na krótkiej płycie CPU oznaczono jako <b>U6</b>, a VIC-II jako <b>U7</b>. W tej rewizji zastosowano inny układ zasilania: <b>nie sprawdzaj +12 V na „U19 pin 13”</b> ani nie korzystaj z oznaczeń punktów dla starszej płyty. Zacznij od zasilacza, stanu przewodów, włącznika i dokumentacji schematu <b>252312</b> właściwego dla 250469. Brak 9 V AC może nie zatrzymać rozruchu tej płyty, ale wpłynie m.in. na dźwięk i magnetofon.</p>
+<a href="https://retrotechwiki.com/Commodore_64_/_64C_Service_Manual" target="_blank" rel="noopener noreferrer">Dokumentacja C64 i C64C (w tym 250469) ↗</a>
+</aside>
+</section>
+
+<section class="c64-guide-section" id="wyniki">
+<div class="c64-guide-section-header"><span class="c64-guide-section-no">05</span><div><span class="eyebrow">CO WYNIKA Z POMIARÓW?</span><h2>PROSTA MAPA DECYZJI</h2></div></div>
+<div class="c64-guide-decision">
+<div><strong>+5 V W ZASILACZU JEST NIEPRAWIDŁOWE</strong><p>Nie podłączaj C64. Najpierw wymień lub profesjonalnie sprawdź zasilacz. Awaria może występować dopiero po nagrzaniu.</p></div>
+<div><strong>9 V AC BRAKUJE</strong><p>Na długiej płycie może zabraknąć zasilania części obwodów zegara i obrazu. Szukaj usterki w zasilaczu i torze 9 V AC zgodnie ze schematem; nie wymieniaj od razu VIC-II.</p></div>
+<div><strong>ZASILACZ DOBRY, ALE NAPIĘCIE NIE DOCHODZI DO UKŁADÓW</strong><p>Sprawdź zasilanie przez złącze, wyłącznik, bezpiecznik oraz odpowiednie ścieżki. Pomiary ciągłości wykonuj przy odłączonym zasilaniu.</p></div>
+<div><strong>WSZYSTKIE NAPIĘCIA WYGLĄDAJĄ POPRAWNIE</strong><p>Sprawdź sygnał RESET, następnie zegary sondą logiczną/oscyloskopem, obraz i test Dead Test. Dopiero wyniki tych testów zawężą podejrzenia do RAM, PLA, ROM, CPU lub VIC-II.</p></div>
+</div>
+<h3 class="c64-guide-subtitle">KARTA POMIARÓW DO WYDRUKOWANIA</h3>
+<p>Zapisz datę, rewizję płyty i stan po rozgrzaniu. Nie wpisuj „sprawny” na podstawie jednego pomiaru bez obciążenia.</p>
+<table class="c64-guide-table c64-guide-record">
+<thead><tr><th scope="col">Punkt</th><th scope="col">Oczekiwane</th><th scope="col">Mój wynik</th></tr></thead>
+<tbody>
+<tr><th scope="row">ASSY / rewizja</th><td>Numer z płyty</td><td>________________</td></tr>
+<tr><th scope="row">Zasilacz 5 V DC pod obciążeniem</th><td>Około 5,0 V, stabilne</td><td>________________</td></tr>
+<tr><th scope="row">Zasilacz 9 V AC</th><td>Nominalnie 9 V AC</td><td>________________</td></tr>
+<tr><th scope="row">U5 pin 24 (tylko długa płyta)</th><td>≈ 5 V DC</td><td>________________</td></tr>
+<tr><th scope="row">U19 pin 40 (tylko długa płyta)</th><td>≈ 5 V DC</td><td>________________</td></tr>
+<tr><th scope="row">U19 pin 13 (tylko długa płyta)</th><td>≈ 12 V DC</td><td>________________</td></tr>
+<tr><th scope="row">U7 pin 40 (tylko długa płyta)</th><td>≈ 5 V po rozruchu</td><td>________________</td></tr>
+</tbody></table>
+</section>
+
+<section class="c64-guide-section" id="zrodla">
+<div class="c64-guide-section-header"><span class="c64-guide-section-no">06</span><div><span class="eyebrow">DOKUMENTACJA I KONTROLA</span><h2>ŹRÓDŁA SERWISOWE</h2></div></div>
+<p>Poniższe opracowania posłużyły do ustalenia napięć, oznaczeń układów i kolejności diagnostyki. Schematy publikujemy jako <b>odsyłacze</b>; rysunki na tej stronie są naszymi poglądowymi diagramami, a nie kopiami płyt Commodore.</p>
+<ul class="c64-guide-sources">
+<li><a href="https://portcommodore.com/rcarlsen/cbm/c64/C64%20PS/pstester.txt" target="_blank" rel="noopener noreferrer">Ray Carlsen — A Tester for the C64 Power Supply ↗</a><span>Oryginalny opis testera, pinów DIN 7 i testu cieplnego z obciążeniem.</span></li>
+<li><a href="https://www.commodore.ca/manuals/funet/cbm/schematics/computers/c64/manual-html/Page_04.html" target="_blank" rel="noopener noreferrer">Commodore — Service Manual, Power Supply ↗</a><span>Wewnętrzne linie 5 V DC, 9 V AC i zasilanie starszych układów.</span></li>
+<li><a href="https://www.commodore.ca/manuals/funet/cbm/schematics/computers/c64/manual-html/Page_14.html" target="_blank" rel="noopener noreferrer">Commodore — Troubleshooting Guide ↗</a><span>Oryginalna lista objawów, w tym czarny ekran.</span></li>
+<li><a href="https://retrotechwiki.com/Commodore_64_Troubleshooting_Guide" target="_blank" rel="noopener noreferrer">Commodore 64 Troubleshooting Guide ↗</a><span>Zestawienie pinów U5/U19/U7, resetu i różnic między rewizjami.</span></li>
+<li><a href="https://retrotechwiki.com/Commodore_64_/_64C_Service_Manual" target="_blank" rel="noopener noreferrer">Service Manual C64/C64C (1992) ↗</a><span>Dokumentacja późnych rewizji, w tym płyty 250469.</span></li>
+</ul>
+<p class="c64-guide-note">Stan dokumentacji sprawdzony: listopad 2026. Niektóre starsze skany mają błędy przepisywania pinów w warstwie tekstowej; w razie sprzeczności sprawdź obraz oryginalnego schematu swojej rewizji.</p>
+<div class="c64-guide-end"><a class="btn primary" href="warsztat-retro.html#c64">← WARSZTAT RETRO</a><a class="btn ghost" href="komputery-retro.html#commodore64">O KOMPUTERZE C64</a></div>
+</section>
+</main>
+<footer class="wrap footer"><span>© 2026 RETRO PRZYSTAŃ · ARTUR GOCH „GROSZEK” & CHATGPT</span><span>MADE WITH ♥ FOR 8-BIT COMPUTERS</span></footer>
+</body></html>

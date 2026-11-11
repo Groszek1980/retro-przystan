@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 460" role="img" aria-labelledby="h d">
+<title id="h">Schemat pomiarów napięć na zasilaczu Commodore 64</title>
+<desc id="d">Schemat funkcjonalny, nie odwzorowanie położenia pinów gniazda. Zasilacz przechodzi przez izolowany adapter DIN 7. Miernik DC między pinami 5 plus i 2 masa, a miernik AC między pinami 6 i 7. Test z obciążeniem próbnym, bez komputera.</desc>
+<rect width="980" height="460" rx="18" fill="#13172f"/>
+<text x="40" y="51" font-family="sans-serif" font-size="24" font-weight="700" fill="#f1edff">POMIAR ZASILACZA C64 — BEZ KOMPUTERA</text>
+<text x="40" y="80" font-family="sans-serif" font-size="14" fill="#b8b7d0">Schemat funkcjonalny • NIE pokazuje fizycznego rozkładu pinów wtyczki DIN 7</text>
+<rect x="36" y="140" width="238" height="176" rx="12" fill="#27294f" stroke="#655f87" stroke-width="2"/>
+<text x="155" y="177" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="white">ZASILACZ C64</text>
+<text x="155" y="205" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c8c4db">5 V DC + 9 V AC</text>
+<text x="155" y="241" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#e4d7ef">Nie podłączać do C64,</text>
+<text x="155" y="263" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#e4d7ef">dopóki test nie wyjdzie</text>
+<text x="155" y="285" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#e4d7ef">prawidłowo</text>
+<path d="M275 223 H343" stroke="#a7a1c8" stroke-width="5" stroke-linecap="round"/><path d="M333 213 L344 223 L333 233" fill="none" stroke="#a7a1c8" stroke-width="5"/>
+<rect x="343" y="135" width="267" height="190" rx="12" fill="#1c2742" stroke="#71e9e5" stroke-width="2"/>
+<text x="477" y="170" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#71e9e5">ADAPTER / TESTER DIN 7</text>
+<text x="477" y="196" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#c8c4df">Izolowany, z obciążeniem</text>
+<text x="380" y="238" font-family="sans-serif" font-size="16" font-weight="700" fill="#77e3c5">PIN 5 = +5 V</text>
+<text x="380" y="268" font-family="sans-serif" font-size="16" font-weight="700" fill="#77e3c5">PIN 2 = GND</text>
+<text x="380" y="300" font-family="sans-serif" font-size="16" font-weight="700" fill="#f5a8e5">PINY 6 i 7 = 9 V AC</text>
+<path d="M612 224 H667" stroke="#77e3c5" stroke-width="4"/><path d="M612 280 H667" stroke="#f5a8e5" stroke-width="4"/>
+<rect x="667" y="149" width="267" height="116" rx="11" fill="#1e3e43" stroke="#77e3c5" stroke-width="2"/>
+<text x="800" y="181" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#d8fff8">MULTIMETR — V⎓</text>
+<text x="800" y="214" text-anchor="middle" font-family="sans-serif" font-size="23" font-weight="700" fill="white">PIN 5 (+) / 2 (−)</text>
+<text x="800" y="244" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#a9f1d9">Około 5,0 V DC</text>
+<rect x="667" y="281" width="267" height="115" rx="11" fill="#46334d" stroke="#f5a8e5" stroke-width="2"/>
+<text x="800" y="314" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#ffe9fc">MULTIMETR — V~</text>
+<text x="800" y="347" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="700" fill="white">PINY 6 i 7</text>
+<text x="800" y="377" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#ffcaee">Nominalnie 9 V AC</text>
+<text x="42" y="426" font-family="sans-serif" font-size="14" fill="#ffe0a5">UWAGA: nie zwieraj styków, nie przełączaj miernika na pomiar prądu (A).</text>
+</svg>
