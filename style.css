@@ -163,3 +163,8 @@ repeating-linear-gradient(to bottom,#483f3b 0 13px,#877867 13px 16px);box-shadow
 .game-gallery-dialog-navigation span{color:#9990bb;font-size:10px;letter-spacing:.4px;text-align:center}
 @media(max-width:930px){.game-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.game-gallery-grid{grid-template-columns:1fr}.game-gallery-dialog{padding:8px}.game-gallery-dialog-navigation{gap:5px}.game-gallery-dialog-navigation span{display:none}.game-gallery-dialog-navigation button{flex:1}.game-gallery-item figcaption{min-height:0}}
+
+/* Galeria HD: link do osobnego zdjęcia w naturalnej rozdzielczości. */
+.game-gallery-original{text-align:center;margin:7px 0 11px}
+.game-gallery-original a{display:inline-block;color:var(--cyan);font-size:11px;letter-spacing:.5px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.game-gallery-original a:hover{color:#fff}

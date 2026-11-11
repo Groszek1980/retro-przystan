@@ -13,7 +13,12 @@
     active=(index+buttons.length)%buttons.length;
     var thumb=buttons[active];
     var img=thumb.querySelector('img');
-    big.src=img.getAttribute('src');
+    // W powiększeniu używamy osobnego obrazu wysokiej rozdzielczości,
+    // a nie miniatury 240 px. Miniatury pozostają lekkie.
+    var full=thumb.getAttribute('data-full') || img.getAttribute('src');
+    big.src=full;
+    var original=document.getElementById('gameGalleryOriginalLink');
+    if(original) original.href=full;
     big.alt=img.alt;
     caption.textContent=thumb.closest('figure').querySelector('figcaption strong').textContent;
     counter.textContent=(active+1)+' / '+buttons.length;
