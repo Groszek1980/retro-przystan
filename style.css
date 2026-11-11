@@ -136,3 +136,30 @@ repeating-linear-gradient(to bottom,#483f3b 0 13px,#877867 13px 16px);box-shadow
 @media(max-width:1100px){.topbar nav{gap:15px}.topbar nav a{font-size:11px}}
 @media(max-width:850px){.retro-machine{grid-template-columns:1fr}.retro-machine-visual{min-height:280px}.retro-teaser-grid{grid-template-columns:1fr}.retro-lab-section{flex-direction:column;align-items:flex-start}}
 @media(max-width:560px){.retro-detail-page{padding-top:38px}.retro-detail-hero{padding-bottom:32px}.retro-detail-hero>p{font-size:15px}.retro-machine-visual{min-height:240px}.retro-machine-info{padding:24px 18px}.retro-computer-shell{height:143px;padding:10px}.retro-keyboard{height:68px}.retro-spacebar{bottom:13px}.retro-machine-info h2{font-size:18px}.retro-spec-list>div{font-size:12px}.retro-spec-list dt{min-width:90px}.retro-lab-section{padding:25px 17px}.retro-teaser-grid{gap:12px}}
+
+/* GALERIA LOT NAD WISLA */
+.game-gallery{margin:55px 0 70px;scroll-margin-top:25px}
+.game-gallery-heading h2{font:clamp(19px,2.5vw,28px)/1.65 'Press Start 2P',monospace;margin:14px 0}
+.game-gallery-intro{max-width:900px;font-size:14px;line-height:1.8;color:#bbb6d2;margin:0 0 28px}
+.game-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.game-gallery-item{margin:0;overflow:hidden;border:1px solid var(--border);border-radius:9px;background:#191a37;min-width:0}
+.game-gallery-thumb{display:block;position:relative;width:100%;padding:0;border:0;background:#3037a7;cursor:zoom-in;aspect-ratio:4/3;overflow:hidden}
+.game-gallery-thumb img{display:block;width:100%;height:100%;object-fit:contain;image-rendering:pixelated;transition:transform .2s}
+.game-gallery-thumb:hover img{transform:scale(1.04)}
+.game-gallery-thumb:focus-visible{outline:3px solid var(--cyan);outline-offset:-3px}
+.game-gallery-zoom{position:absolute;bottom:10px;right:10px;padding:7px 9px;background:#0d1029d9;border:1px solid #73689d;border-radius:4px;color:#fff;font:10px 'Space Grotesk',sans-serif;letter-spacing:.6px}
+.game-gallery-item figcaption{display:flex;flex-direction:column;gap:7px;min-height:97px;padding:15px 16px;line-height:1.5}
+.game-gallery-item figcaption strong{font-size:13px;color:#f3ecff}
+.game-gallery-item figcaption span{color:#aaa6c9;font-size:12px}
+.game-gallery-dialog{box-sizing:border-box;max-width:min(980px,96vw);width:min(980px,96vw);max-height:94vh;padding:15px;background:#101326;color:#faf7ff;border:1px solid #655b8d;border-radius:10px;overflow:auto}
+.game-gallery-dialog::backdrop{background:#050515e8}
+.game-gallery-dialog-top{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:12px;color:#bdb7d8;font-size:12px}
+.game-gallery-close,.game-gallery-dialog-navigation button{border:1px solid #6f668c;border-radius:5px;background:#292545;color:#fff;padding:11px 14px;font:700 11px 'Space Grotesk',sans-serif;cursor:pointer}
+.game-gallery-close:hover,.game-gallery-dialog-navigation button:hover{background:#46376b;border-color:var(--cyan)}
+.game-gallery-dialog button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.game-gallery-dialog img{display:block;width:100%;max-height:70vh;object-fit:contain;image-rendering:pixelated;background:#3037a7}
+.game-gallery-dialog-caption{text-align:center;color:#f5efff;font-weight:700;font-size:14px;line-height:1.6;padding:2px 0}
+.game-gallery-dialog-navigation{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.game-gallery-dialog-navigation span{color:#9990bb;font-size:10px;letter-spacing:.4px;text-align:center}
+@media(max-width:930px){.game-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.game-gallery-grid{grid-template-columns:1fr}.game-gallery-dialog{padding:8px}.game-gallery-dialog-navigation{gap:5px}.game-gallery-dialog-navigation span{display:none}.game-gallery-dialog-navigation button{flex:1}.game-gallery-item figcaption{min-height:0}}

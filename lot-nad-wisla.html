@@ -39,9 +39,70 @@
 <div class="game-fact"><strong>ŻYCIA I PALIWO</strong><span>Trzy życia na start, pasek wytrzymałości i konieczność tankowania.</span></div>
 <div class="game-fact"><strong>PRAWDZIWY C64</strong><span>Gra w asemblerze 6502, plik D64 i przeglądarkowy emulator VICE.</span></div>
 </div>
+<section class="game-gallery" id="galeria" aria-labelledby="gallery-heading">
+  <div class="section-head game-gallery-heading">
+    <div><span class="eyebrow">PRAWDZIWE ZRZUTY EKRANU</span><h2 id="gallery-heading">GALERIA <span class="accent">GRY</span></h2></div>
+    <span class="pill">06 OBRAZÓW</span>
+  </div>
+  <p class="game-gallery-intro">Zdjęcia z rozgrywki LOT NAD WISŁĄ, wykonane w emulatorze. Kliknij miniaturę, aby ją powiększyć; w powiększeniu możesz przechodzić strzałkami między obrazami.</p>
+  <div class="game-gallery-grid">
+    <figure class="game-gallery-item">
+      <button class="game-gallery-thumb" type="button" data-gallery-index="0" aria-label="Powiększ: Ekran tytułowy">
+        <img src="images/galeria-lot/01-ekran-tytulowy.webp" alt="Ekran tytułowy LOT NAD WISŁĄ z samolotem nad rzeką oraz nazwiskami twórców" width="240" height="180" loading="lazy" decoding="async">
+        <span class="game-gallery-zoom" aria-hidden="true">⤢ POWIĘKSZ</span>
+      </button>
+      <figcaption><strong>1. Ekran tytułowy</strong><span>Ekran tytułowy gry z samolotem, rzeką i informacjami o twórcach.</span></figcaption>
+    </figure>
+<figure class="game-gallery-item">
+      <button class="game-gallery-thumb" type="button" data-gallery-index="1" aria-label="Powiększ: Początek etapu 1">
+        <img src="images/galeria-lot/02-poczatek-etapu.webp" alt="Niebieski ekran rozpoczęcia pierwszego etapu LOT NAD WISŁĄ z napisem Przygotuj się" width="320" height="240" loading="lazy" decoding="async">
+        <span class="game-gallery-zoom" aria-hidden="true">⤢ POWIĘKSZ</span>
+      </button>
+      <figcaption><strong>2. Początek etapu 1</strong><span>Plansza „Źródła Wisły” i kod pierwszego etapu.</span></figcaption>
+    </figure>
+<figure class="game-gallery-item">
+      <button class="game-gallery-thumb" type="button" data-gallery-index="2" aria-label="Powiększ: Wrogie samoloty">
+        <img src="images/galeria-lot/03-wrogie-samoloty.webp" alt="Niebieski samolot gracza, dwa czerwone samoloty wroga i punkt CPN nad rzeką" width="240" height="180" loading="lazy" decoding="async">
+        <span class="game-gallery-zoom" aria-hidden="true">⤢ POWIĘKSZ</span>
+      </button>
+      <figcaption><strong>3. Wrogie samoloty</strong><span>Lot nad Wisłą, dwóch przeciwników w powietrzu i punkt tankowania.</span></figcaption>
+    </figure>
+<figure class="game-gallery-item">
+      <button class="game-gallery-thumb" type="button" data-gallery-index="3" aria-label="Powiększ: Czołg na brzegu">
+        <img src="images/galeria-lot/04-czolg.webp" alt="Czołg na wysuniętym lewym brzegu Wisły, samolot gracza i czerwony myśliwiec" width="240" height="180" loading="lazy" decoding="async">
+        <span class="game-gallery-zoom" aria-hidden="true">⤢ POWIĘKSZ</span>
+      </button>
+      <figcaption><strong>4. Czołg na brzegu</strong><span>Występ lewego brzegu z czołgiem oraz nadlatujący samolot przeciwnika.</span></figcaption>
+    </figure>
+<figure class="game-gallery-item">
+      <button class="game-gallery-thumb" type="button" data-gallery-index="4" aria-label="Powiększ: Działo naziemne">
+        <img src="images/galeria-lot/05-dzialo.webp" alt="Działo na prawym brzegu rzeki, niebieski samolot gracza i czerwony myśliwiec" width="240" height="180" loading="lazy" decoding="async">
+        <span class="game-gallery-zoom" aria-hidden="true">⤢ POWIĘKSZ</span>
+      </button>
+      <figcaption><strong>5. Działo naziemne</strong><span>Działo na prawym brzegu i walka w późniejszym etapie gry.</span></figcaption>
+    </figure>
+<figure class="game-gallery-item">
+      <button class="game-gallery-thumb" type="button" data-gallery-index="5" aria-label="Powiększ: Finałowy boss">
+        <img src="images/galeria-lot/06-boss.webp" alt="Finałowy boss okręt na Wiśle, samolot gracza i HUD z napisem BOSS HP" width="240" height="180" loading="lazy" decoding="async">
+        <span class="game-gallery-zoom" aria-hidden="true">⤢ POWIĘKSZ</span>
+      </button>
+      <figcaption><strong>6. Finałowy boss</strong><span>Etap 6: starcie z okrętem i pasek BOSS HP.</span></figcaption>
+    </figure>
+  </div>
+</section>
+<dialog id="gameGalleryDialog" class="game-gallery-dialog" aria-label="Powiększony zrzut ekranu gry" aria-modal="true">
+  <div class="game-gallery-dialog-top"><span id="gameGalleryCounter">1 / 6</span><button type="button" id="gameGalleryClose" class="game-gallery-close" aria-label="Zamknij galerię">✕ ZAMKNIJ</button></div>
+  <img id="gameGalleryBig" alt="" width="960" height="720">
+  <p id="gameGalleryTitle" class="game-gallery-dialog-caption"></p>
+  <div class="game-gallery-dialog-navigation">
+    <button type="button" id="gameGalleryPrev" aria-label="Poprzedni zrzut ekranu">← POPRZEDNI</button>
+    <span>STRZAŁKI ← → / ESC</span>
+    <button type="button" id="gameGalleryNext" aria-label="Następny zrzut ekranu">NASTĘPNY →</button>
+  </div>
+</dialog>
 <h2 class="game-section-title">TWÓRCY</h2>
 <p class="game-story"><strong>Artur Goch „Groszek”</strong> i <strong>ChatGPT</strong>.<br>Specjalne podziękowania dla Kuby i Piotra Gochów za pomoc w testach.<br>Październik 2026.</p>
 <p class="game-story"><strong>Uwaga o wersji:</strong> strona udostępnia obraz D64 kompilacji I1.4, zachowany w repozytorium gry. Nowsze wersje są rozwijane oddzielnie i nie zostały jeszcze podmienione w bibliotece RETRO PRZYSTANI.</p>
 <div class="actions"><a class="btn primary" href="player.html?game=lot-nad-wisla">▶ GRAJ ONLINE</a><a class="btn ghost" href="gry-groszka.html">← GRY GROSZKA</a></div>
 </main><footer class="wrap footer"><span>© 2026 RETRO PRZYSTAŃ · ARTUR GOCH „GROSZEK” & CHATGPT</span><span>MADE WITH ♥ FOR 8-BIT COMPUTERS</span></footer>
-</body></html>
+<script src="gallery.js?v=20261111"></script></body></html>
