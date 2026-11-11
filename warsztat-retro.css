@@ -1,0 +1,70 @@
+
+/* Warsztat Retro — niezalezna, responsywna podstrona serwisowa. */
+.workshop-page{padding:48px 0 100px}
+.workshop-page section[id],.workshop-page article[id]{scroll-margin-top:25px}
+.workshop-hero{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:40px;padding:40px 0 58px}
+.workshop-hero h1{font:clamp(23px,3.2vw,40px)/1.65 'Press Start 2P',monospace;margin:24px 0}
+.workshop-hero-content>p{font-size:17px;line-height:1.85;color:#cbc6e0;max-width:670px}
+.workshop-actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}
+.workshop-facts{display:flex;flex-wrap:wrap;gap:8px}
+.workshop-facts span{font-size:10px;letter-spacing:.7px;font-weight:700;color:#aee6e7;border:1px solid #4a527d;border-radius:4px;padding:9px 11px;background:#1c2040}
+.workshop-terminal{border:3px solid #6d6088;border-radius:11px;background:#11182c;box-shadow:8px 11px 0 #0005;overflow:hidden;transform:rotate(1deg)}
+.workshop-terminal-bar{display:flex;justify-content:space-between;gap:10px;background:#2e2a49;padding:13px 16px;font-size:10px;letter-spacing:1px;font-weight:800;color:#a6f5e8}
+.workshop-terminal-bar span:last-child{color:#f86bce;letter-spacing:3px}
+.workshop-terminal-screen{padding:24px 20px 28px;color:#9ce9de;font:12px/2 'Space Grotesk',monospace;min-height:252px}
+.workshop-terminal-screen p{margin:0 0 10px}
+.workshop-terminal-screen .workshop-term-command{font:14px 'Press Start 2P',monospace;color:#e6f6f6;margin-bottom:26px}
+.workshop-terminal-label{color:#fc85d7;font-weight:800;margin-right:14px}
+.workshop-terminal-ready{font-size:10px;letter-spacing:.6px;color:#dfd0ef;margin-top:22px!important}
+.workshop-cursor{color:#f86bce}
+.workshop-safety{display:flex;gap:18px;align-items:flex-start;border:1px solid #9a7458;border-left:5px solid #e8bc74;border-radius:9px;padding:23px 26px;margin:0 0 70px;background:#2b2535}
+.workshop-safety-mark{flex-shrink:0;display:grid;place-items:center;width:35px;height:35px;border:2px solid #e8bc74;border-radius:50%;color:#e8bc74;font-size:22px;font-weight:800}
+.workshop-safety h2{font:12px/1.85 'Press Start 2P',monospace;color:#f5d1a0;margin:0 0 13px}
+.workshop-safety p{font-size:14px;line-height:1.8;color:#ddd1cf;margin:0 0 10px}
+.workshop-safety p:last-child{margin-bottom:0}
+.workshop-page .section-head h2,.workshop-next h2{font:clamp(17px,2.4vw,26px)/1.75 'Press Start 2P',monospace;margin:16px 0}
+.workshop-page .section-head p{max-width:820px;color:#b8b4d4;font-size:14px;line-height:1.8}
+.workshop-steps,.workshop-guides,.workshop-tools,.workshop-library{margin-bottom:76px}
+.workshop-step-grid{list-style:none;padding:0;margin:27px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.workshop-step-grid li{background:#1b1d3a;border:1px solid #3b3d61;padding:22px;border-radius:8px;min-width:0}
+.workshop-step-no{display:block;color:#f86bce;font:16px 'Press Start 2P',monospace;margin-bottom:18px}
+.workshop-step-grid strong{display:block;color:#faf6ff;font-size:13px;letter-spacing:.5px}
+.workshop-step-grid p{font-size:13px;color:#b8b4cf;line-height:1.8;margin-bottom:0}
+.workshop-guide{overflow:hidden;border:1px solid #47405f;border-radius:9px;background:#181a35;margin:24px 0}
+.workshop-guide-head{display:flex;gap:22px;align-items:center;padding:27px;background:linear-gradient(110deg,#2c2649,#1b2142);border-bottom:1px solid #50486c}
+.workshop-guide-head h3{font:clamp(13px,1.7vw,18px)/1.8 'Press Start 2P',monospace;margin:12px 0 7px}
+.workshop-guide-head p{font-size:13px;line-height:1.7;color:#c4b9d6;margin:0}
+.workshop-guide-badge{flex-shrink:0;display:grid;place-items:center;width:90px;height:85px;background:#3f3464;border:1px solid #948ac0;border-radius:8px;color:#d4f7fb;font:14px 'Press Start 2P',monospace;box-shadow:4px 4px #0c1123}
+.workshop-guide-atari{background:#4c325d}
+.workshop-guide-amiga{background:#275b65;font-size:12px}
+.workshop-guide-body{padding:10px 27px 25px}
+.workshop-guide details{border-bottom:1px solid #393954}
+.workshop-guide summary{cursor:pointer;padding:19px 25px 19px 3px;list-style:none;position:relative;color:#f0eaf6;font-size:14px;font-weight:700;line-height:1.6}
+.workshop-guide summary::-webkit-details-marker{display:none}
+.workshop-guide summary::after{content:'+';position:absolute;right:5px;top:14px;color:var(--cyan);font-size:23px;font-weight:400}
+.workshop-guide details[open] summary::after{content:'−'}
+.workshop-guide summary:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.workshop-guide details ol{padding:0 15px 20px 25px;margin:0}
+.workshop-guide details li{padding:5px 0;color:#c9c3dc;font-size:14px;line-height:1.85}
+.workshop-guide details li::marker{color:var(--cyan);font-weight:700}
+.workshop-guide details li strong{color:#f2eafc}
+.workshop-source-note{font-size:12px;line-height:2;color:#b0a8d0;margin:20px 0 0}
+.workshop-source-note a,.workshop-doc a{color:#71f4e4;text-decoration:underline;text-underline-offset:3px}
+.workshop-source-note a:hover,.workshop-doc a:hover{color:#fff}
+.workshop-tool-grid,.workshop-doc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:25px}
+.workshop-tool{padding:23px;background:linear-gradient(135deg,#252142,#171a33);border:1px solid #46405e;border-radius:8px}
+.workshop-tool>span{font:15px 'Press Start 2P',monospace;color:#fa85cf}
+.workshop-tool h3{font-size:12px;line-height:1.7;letter-spacing:.5px;margin:21px 0 10px}
+.workshop-tool p{font-size:13px;line-height:1.8;color:#c6bddb}
+.workshop-doc-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.workshop-doc{display:flex;flex-direction:column;gap:13px;padding:22px;background:#1b223c;border:1px solid #445474;border-radius:8px}
+.workshop-doc strong{font:11px/1.8 'Press Start 2P',monospace;color:#f1defa;margin-bottom:6px}
+.workshop-doc a{font-size:13px;line-height:1.65}
+.workshop-document-note{font-size:12px;line-height:1.8;color:#a7a5c5;margin-top:16px}
+.workshop-next{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:30px;background:linear-gradient(125deg,#2b2443,#171e36);border-radius:9px;border:1px solid #5c4870}
+.workshop-next p{font-size:14px;line-height:1.8;color:#cac2dd;max-width:760px}
+.workshop-next .btn{flex-shrink:0}
+@media(max-width:1050px){.workshop-hero{grid-template-columns:1fr}.workshop-terminal{max-width:660px;transform:none}.workshop-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:820px){.workshop-step-grid,.workshop-doc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.workshop-next{flex-direction:column;align-items:flex-start}}
+@media(max-width:580px){.workshop-page{padding-top:24px}.workshop-hero{padding:25px 0 40px;gap:20px}.workshop-hero-content>p{font-size:15px}.workshop-terminal-screen{padding:18px 15px;font-size:10px}.workshop-terminal-label{margin-right:5px}.workshop-safety{padding:17px;gap:12px}.workshop-safety h2{font-size:10px}.workshop-safety-mark{width:25px;height:25px;font-size:17px}.workshop-step-grid,.workshop-doc-grid,.workshop-tool-grid{grid-template-columns:1fr}.workshop-steps,.workshop-guides,.workshop-tools,.workshop-library{margin-bottom:52px}.workshop-guide-head{padding:19px;gap:13px;align-items:flex-start}.workshop-guide-badge{width:60px;height:57px;font-size:10px}.workshop-guide-amiga{font-size:9px}.workshop-guide-head h3{font-size:12px}.workshop-guide-body{padding:8px 17px 20px}.workshop-guide details li{font-size:13px}.workshop-next{padding:19px}}
+@media print{.topbar,.workshop-actions,.workshop-next .btn,.footer{display:none!important}.workshop-page{padding:0}.workshop-terminal{display:none}.workshop-hero{display:block}.workshop-guide details:not([open]){display:block}.workshop-guide details:not([open]) summary{display:block}.workshop-guide details:not([open]) ol{display:block}.workshop-guide{break-inside:avoid}.workshop-step-grid{grid-template-columns:repeat(2,1fr)}}

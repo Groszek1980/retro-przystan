@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#11112b">
+  <meta name="description" content="Warsztat Retro w RETRO PRZYSTANI: praktyczna diagnostyka Commodore 64, Atari 65XE i Amigi 1200, bezpieczne pomiary, objawy usterek i dokumentacja serwisowa.">
+  <title>WARSZTAT RETRO — RETRO PRZYSTAŃ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="warsztat-retro.css">
+</head>
+<body>
+  <header class="topbar wrap">
+    <a class="logo" href="index.html"><span class="logo-mark">▣</span> RETRO<span class="accent">PRZYSTAŃ</span><small>8-BIT GAME LAB</small></a>
+    <nav aria-label="Menu"><a href="index.html">STRONA GŁÓWNA</a><a href="gry-groszka.html">GRY GROSZKA</a><a href="komputery-retro.html">KOMPUTERY RETRO</a><a href="warsztat-retro.html" aria-current="page">WARSZTAT RETRO</a><a href="aktualnosci.html">AKTUALNOŚCI</a><a href="player.html">EMULATOR</a></nav>
+  </header>
+
+  <main class="wrap workshop-page">
+    <section class="workshop-hero" aria-labelledby="workshop-title">
+      <div class="workshop-hero-content">
+        <span class="eyebrow"><span class="pulse"></span> 8-BIT SERVICE LAB</span>
+        <h1 id="workshop-title">WARSZTAT <span class="accent">RETRO</span></h1>
+        <p>Nie wymieniaj układów w ciemno. Rozpoznaj objaw, sprawdź zasilanie, odczytaj schemat i dopiero wtedy wybierz następny pomiar. Tu zbieramy praktyczne wskazówki dla miłośników klasycznych komputerów.</p>
+        <div class="workshop-actions">
+          <a class="btn primary" href="#poradniki">▶ PRZEJDŹ DO PORADNIKÓW</a>
+          <a class="btn ghost" href="#dokumentacja">◈ DOKUMENTACJA</a>
+        </div>
+        <div class="workshop-facts"><span>03 KOMPUTERY</span><span>03 PORADNIKI STARTOWE</span><span>SPRAWDZONE ŹRÓDŁA</span></div>
+      </div>
+      <div class="workshop-terminal" aria-label="Dekoracyjny panel diagnostyczny">
+        <div class="workshop-terminal-bar"><span>RETRO DIAGNOSTIC TERMINAL</span><span aria-hidden="true">● ● ●</span></div>
+        <div class="workshop-terminal-screen">
+          <p class="workshop-term-command">READY.</p>
+          <p><span class="workshop-terminal-label">STEP 01</span> IDENTYFIKUJ OBJAW</p>
+          <p><span class="workshop-terminal-label">STEP 02</span> SPRAWDŹ ZASILANIE</p>
+          <p><span class="workshop-terminal-label">STEP 03</span> PORÓWNAJ ZE SCHEMATEM</p>
+          <p><span class="workshop-terminal-label">STEP 04</span> ZAPISZ WYNIKI</p>
+          <p class="workshop-terminal-ready">SYSTEM: DIAGNOZA PRZED NAPRAWĄ <span class="workshop-cursor">▮</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="workshop-safety" aria-labelledby="workshop-safety-title">
+      <span class="workshop-safety-mark" aria-hidden="true">!</span>
+      <div>
+        <h2 id="workshop-safety-title">BEZPIECZEŃSTWO PRZEDE WSZYSTKIM</h2>
+        <p>Odłącz komputer od zasilania przed otwieraniem, czyszczeniem, wymianą części i pomiarami rezystancji. Nie otwieraj zasilaczy sieciowych — kondensatory mogą pozostać naładowane nawet po wyjęciu wtyczki. Pomiary napięcia na pracującym sprzęcie wykonuj tylko wtedy, gdy potrafisz bezpiecznie uniknąć zwarcia. Nigdy nie podłączaj niesprawdzonego zasilacza do sprawnego komputera.</p>
+        <p>Dokładne punkty pomiarowe i wartości zależą od modelu, rewizji płyty i typu zasilacza. W razie wątpliwości sprawdź właściwy schemat lub skorzystaj z pomocy doświadczonego serwisanta.</p>
+      </div>
+    </section>
+
+    <section class="workshop-steps" id="pierwsze-kroki" aria-labelledby="workshop-steps-title">
+      <div class="section-head"><div>
+        <span class="eyebrow">OD CZEGO ZACZĄĆ?</span>
+        <h2 id="workshop-steps-title">DIAGNOZA <span class="accent">KROK PO KROKU</span></h2>
+      </div></div>
+      <ol class="workshop-step-grid">
+        <li><span class="workshop-step-no">01</span><strong>OPISZ OBJAW</strong><p>Czarny ekran, brak dźwięku, błędy pamięci? Zapisz, kiedy problem występuje i czy pojawia się po rozgrzaniu.</p></li>
+        <li><span class="workshop-step-no">02</span><strong>ODŁĄCZ DODATKI</strong><p>Wyjmij kartridże i odłącz zbędne urządzenia peryferyjne przy wyłączonym zasilaniu. Sprawdź też kable i wejście monitora.</p></li>
+        <li><span class="workshop-step-no">03</span><strong>SPRAWDŹ ZASILACZ</strong><p>Ustal wymagane napięcia w dokumentacji danego modelu. Nie podłączaj starego, podejrzanego zasilacza bez jego weryfikacji.</p></li>
+        <li><span class="workshop-step-no">04</span><strong>OBEJRZYJ PŁYTĘ</strong><p>Po odłączeniu zasilania szukaj korozji, wycieków, uszkodzonych ścieżek, przegrzanych części i problemów ze złączami.</p></li>
+        <li><span class="workshop-step-no">05</span><strong>SIĘGNIJ PO SCHEMAT</strong><p>Sprawdź numer rewizji płyty. Wybierz odpowiednią dokumentację, zanim ustalisz punkty pomiarowe lub podejrzane układy.</p></li>
+        <li><span class="workshop-step-no">06</span><strong>ZAPISZ WYNIKI</strong><p>Fotografuj płytę, notuj pomiary i wprowadzaj jedną zmianę naraz. Po każdej poprawce sprawdź, czy objaw ustąpił.</p></li>
+      </ol>
+    </section>
+
+    <section id="poradniki" class="workshop-guides" aria-labelledby="workshop-guides-title">
+      <div class="section-head"><div>
+        <span class="eyebrow">PIERWSZA POMOC DLA KLASYKÓW</span>
+        <h2 id="workshop-guides-title">PORADNIKI <span class="accent">SERWISOWE</span></h2>
+        <p>Wybierz komputer, a następnie rozwiń objaw. Te wskazówki to początek diagnostyki, nie zamiennik schematu ani gwarancja wskazania jednej uszkodzonej części.</p>
+      </div></div>
+
+      <article class="workshop-guide" id="c64">
+        <div class="workshop-guide-head">
+          <div class="workshop-guide-badge">C64</div>
+          <div><span class="eyebrow">COMMODORE 64</span><h3>CZARNY EKRAN I PROBLEMY Z URUCHOMIENIEM</h3>
+          <p>Zasilacz, sygnał wideo, pamięć RAM i układy logiczne — od czego zacząć?</p></div>
+        </div>
+        <div class="workshop-guide-body">
+          <details open><summary>Komputer się włącza, ale ekran pozostaje czarny</summary>
+            <ol>
+              <li>Sprawdź wybór wejścia w monitorze oraz kabel wideo. Porównaj działanie na innym sprawnym ekranie lub przewodzie.</li>
+              <li>Odłącz dodatkowy sprzęt przy wyłączonym komputerze.</li>
+              <li><strong>Zweryfikuj zasilacz C64:</strong> dostarcza on +5 V DC oraz 9 V AC. Punkty pomiarowe i tryb miernika dobierz według schematu właściwego dla złącza. Sam poprawny pomiar bez obciążenia nie dowodzi, że zasilacz jest sprawny.</li>
+              <li>Jeżeli zasilanie jest poprawne, odczytaj rewizję płyty i korzystaj z tabeli objawów w instrukcji serwisowej. Przy czarnym ekranie instrukcja wymienia kilka możliwych obszarów, m.in. RAM, ROM, PLA oraz CPU — nie wymieniaj ich na chybił trafił.</li>
+            </ol>
+          </details>
+          <details><summary>Obraz działa, ale klawiatura lub joystick nie reaguje</summary>
+            <ol><li>Sprawdź reakcję w BASIC i odłącz dodatkowe kontrolery.</li><li>Przy wyłączonym komputerze sprawdź stan gniazd i wtyków, szczególnie ślady zwarć oraz wygięte styki.</li><li>W instrukcji serwisowej odszukaj obwody CIA oraz połączenia klawiatury i portów joysticków; sam brak reakcji nie oznacza od razu uszkodzenia CIA.</li></ol>
+          </details>
+          <details><summary>Brak dźwięku lub zakłócenia</summary>
+            <ol><li>Wyklucz głośniki, przewód audio/wideo i ustawienia odbiornika.</li><li>Sprawdź, czy usterka występuje w kilku programach.</li><li>Po potwierdzeniu prawidłowego zasilania przeanalizuj ścieżkę audio, układ SID i jego otoczenie zgodnie z wersją płyty; nie wyjmuj układów pod napięciem.</li></ol>
+          </details>
+          <p class="workshop-source-note">Źródło: <a href="https://www.commodore.ca/manuals/funet/cbm/schematics/computers/c64/manual-html/Page_04.html" target="_blank" rel="noopener noreferrer">Commodore 64 Service Manual — zasilanie ↗</a> i <a href="https://www.commodore.ca/manuals/funet/cbm/schematics/computers/c64/manual-html/Page_14.html" target="_blank" rel="noopener noreferrer">tabela objawów ↗</a>.</p>
+        </div>
+      </article>
+
+      <article class="workshop-guide" id="atari">
+        <div class="workshop-guide-head">
+          <div class="workshop-guide-badge workshop-guide-atari">65XE</div>
+          <div><span class="eyebrow">ATARI 65XE</span><h3>BRAK EKRANU READY I NIESTABILNA PRACA</h3>
+          <p>Jedno zasilanie 5 V DC, złącza, pamięć i tor wideo.</p></div>
+        </div>
+        <div class="workshop-guide-body">
+          <details open><summary>Komputer nie uruchamia się albo nie wyświetla READY</summary>
+            <ol><li>Sprawdź telewizor, kabel wideo i podłączenie zasilania. Odłącz urządzenia SIO i kartridże przy wyłączonym sprzęcie.</li>
+            <li>Atari 65XE wymaga zewnętrznego <strong>+5 V DC</strong>. W odróżnieniu od C64 nie oczekuj 9 V AC na wejściu komputera. Zidentyfikuj dokładny zasilacz i złącze, a następnie zweryfikuj napięcie na właściwych stykach.</li>
+            <li>W większości schematów 65XE nie ma na płycie stabilizatora 7805 — zasilanie jest już stabilizowane zewnętrznie. Nie szukaj nieistniejącego regulatora.</li>
+            <li>Jeśli zasilanie jest poprawne, sprawdź stan gniazda i wyłącznika oraz dobierz schemat do konkretnej wersji płyty. Kolejnym etapem może być diagnostyka RAM, ROM, ANTIC i GTIA.</li></ol>
+          </details>
+          <details><summary>Zawieszenia lub przypadkowe znaki na ekranie</summary>
+            <ol><li>Zapisz, czy problem pojawia się od razu, czy po nagrzaniu.</li><li>Po wyłączeniu odłącz peryferia i sprawdź stan złączy oraz widoczne uszkodzenia płyty.</li><li>Zweryfikuj stabilność zasilania, a następnie skorzystaj z testów RAM/ROM i dokumentacji właściwej rewizji. Nie traktuj każdego zakłócenia obrazu jako awarii GTIA.</li></ol>
+          </details>
+          <details><summary>Brak dźwięku lub problemy z portem joysticka</summary>
+            <ol><li>Sprawdź kabel i tor wyjściowy, a także działanie różnych programów.</li><li>Na wyłączonym komputerze obejrzyj gniazdo joysticka i przewody pod kątem zwarć i uszkodzeń.</li><li>Do dalszych pomiarów wykorzystaj schemat 65XE oraz informacje o układzie POKEY i liniach portów.</li></ol>
+          </details>
+          <p class="workshop-source-note">Źródła: <a href="https://retrotechwiki.com/Atari_65XE_Troubleshooting_Guide" target="_blank" rel="noopener noreferrer">Atari 65XE — przewodnik diagnostyczny ↗</a> oraz <a href="https://retrotechwiki.com/Atari_65XE_General_Maintenance" target="_blank" rel="noopener noreferrer">konserwacja i wersje płyt ↗</a>.</p>
+        </div>
+      </article>
+
+      <article class="workshop-guide" id="amiga">
+        <div class="workshop-guide-head">
+          <div class="workshop-guide-badge workshop-guide-amiga">A1200</div>
+          <div><span class="eyebrow">AMIGA 1200</span><h3>TRZASKI W DŹWIĘKU I PROBLEMY Z OBRAZEM</h3>
+          <p>Wiekowe kondensatory SMD, ścieżki i układy Paula, Lisa oraz otoczenie.</p></div>
+        </div>
+        <div class="workshop-guide-body">
+          <details open><summary>Trzeszczy dźwięk, zanika kanał albo obraz jest zniekształcony</summary>
+            <ol><li>Przetestuj oba kanały audio i inny sprawny przewód/odbiornik. Ustal, czy problem występuje zawsze czy po rozgrzaniu.</li>
+            <li>Odłącz zasilanie, otwórz obudowę i obejrzyj okolice kondensatorów elektrolitycznych SMD. W A1200 wycieki i korozja potrafią uszkodzić pola lutownicze oraz przelotki.</li>
+            <li>Udokumentuj rewizję płyty, kondensatory i ich polaryzację fotografiami. Nie odrywaj ani nie wykręcaj elementów z pól — łatwo uszkodzić laminat.</li>
+            <li>Wymiana i oczyszczanie wymagają odpowiedniego sprzętu oraz doświadczenia. Jeśli ścieżki są już skorodowane, sama wymiana kondensatora może nie usunąć usterki.</li></ol>
+          </details>
+          <details><summary>Amiga nie startuje lub zawiesza się</summary>
+            <ol><li>Sprawdź konfigurację minimalną: odłącz przy wyłączonym komputerze zbędne rozszerzenia i urządzenia.</li><li>Zweryfikuj zgodność oraz stan zasilacza; nie zakładaj, że sprawna dioda LED oznacza prawidłowe wszystkie napięcia.</li><li>Sprawdź ewentualne ślady korozji i wcześniejszych napraw. Dopiero potem analizuj pamięć, ROM i układy specjalizowane według schematu konkretnej płyty.</li></ol>
+          </details>
+          <details><summary>Co sprawdzić przed wymianą kondensatorów?</summary>
+            <ol><li>Odczytaj rewizję płyty (np. 1D lub 2B) i dopasuj zestaw części do tej wersji.</li><li>Porównaj wartości i polaryzację ze schematem oraz zdjęciami istniejącej płyty; nie polegaj wyłącznie na nadruku.</li><li>Sprawdź stan padów i przelotek oraz przygotuj bezpieczną metodę czyszczenia. Gdy nie ma pewności co do lutowania SMD, oddaj płytę serwisowi specjalizującemu się w Amidze.</li></ol>
+          </details>
+          <p class="workshop-source-note">Źródła: <a href="https://retrotechwiki.com/Amiga_1200_Troubleshooting_Guide" target="_blank" rel="noopener noreferrer">Amiga 1200 — diagnostyka ↗</a>, <a href="https://retrotechwiki.com/Amiga_1200_Capacitor_Replacement_Guide" target="_blank" rel="noopener noreferrer">kondensatory ↗</a> oraz <a href="https://www.amigawiki.org/dnl/schematics/A1200_R1.pdf" target="_blank" rel="noopener noreferrer">schemat A1200, wczesne rewizje (PDF) ↗</a>.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="workshop-tools" id="narzedzia" aria-labelledby="workshop-tools-title">
+      <div class="section-head"><div>
+        <span class="eyebrow">ZAPLECZE SERWISOWE</span>
+        <h2 id="workshop-tools-title">NARZĘDZIA <span class="accent">WARSZTATU</span></h2>
+        <p>Podstawowe wyposażenie pomaga mierzyć i dokumentować usterki; droższe narzędzia przydają się dopiero w kolejnych etapach.</p>
+      </div></div>
+      <div class="workshop-tool-grid">
+        <div class="workshop-tool"><span aria-hidden="true">01</span><h3>MULTIMETR</h3><p>Sprawdzanie napięć oraz ciągłości obwodów. Pamiętaj: rezystancję mierz przy odłączonym zasilaniu.</p></div>
+        <div class="workshop-tool"><span aria-hidden="true">02</span><h3>STACJA LUTOWNICZA</h3><p>Naprawa połączeń i wymiana elementów po potwierdzeniu usterki. Pracuj z odpowiednim topnikiem.</p></div>
+        <div class="workshop-tool"><span aria-hidden="true">03</span><h3>HOT AIR I OCHRONA ESD</h3><p>Zaawansowana praca z SMD oraz ochrona wrażliwych układów. Nie używaj gorącego powietrza bez przygotowania.</p></div>
+        <div class="workshop-tool"><span aria-hidden="true">04</span><h3>SCHEMAT I NOTATKI</h3><p>Numer płyty, zdjęcia, wyniki pomiarów i opis objawów są równie ważne jak sam miernik.</p></div>
+      </div>
+    </section>
+
+    <section class="workshop-library" id="dokumentacja" aria-labelledby="workshop-docs-title">
+      <div class="section-head"><div>
+        <span class="eyebrow">BIBLIOTEKA LINKÓW</span>
+        <h2 id="workshop-docs-title">DOKUMENTACJA <span class="accent">SERWISOWA</span></h2>
+        <p>Wybrane źródła, które posłużyły do opracowania poradników. Otwierają się na zewnętrznych stronach — nie kopiujemy ich skanów do własnej biblioteki.</p>
+      </div></div>
+      <div class="workshop-doc-grid">
+        <div class="workshop-doc"><strong>COMMODORE 64</strong><a href="https://www.commodore.ca/manuals/funet/cbm/schematics/computers/c64/manual-html/" target="_blank" rel="noopener noreferrer">Instrukcja serwisowa Commodore ↗</a><a href="https://www.commodore.ca/manuals/funet/cbm/schematics/computers/c64/index.html" target="_blank" rel="noopener noreferrer">Archiwum schematów C64 ↗</a></div>
+        <div class="workshop-doc"><strong>ATARI 65XE</strong><a href="https://retrotechwiki.com/Atari_65XE_Troubleshooting_Guide" target="_blank" rel="noopener noreferrer">Diagnostyka Atari 65XE ↗</a><a href="https://retrotechwiki.com/Atari_65XE_General_Maintenance" target="_blank" rel="noopener noreferrer">Konserwacja i rewizje ↗</a></div>
+        <div class="workshop-doc"><strong>AMIGA 1200</strong><a href="https://retrotechwiki.com/Amiga_1200_Capacitor_Replacement_Guide" target="_blank" rel="noopener noreferrer">Przegląd kondensatorów ↗</a><a href="https://www.amigawiki.org/dnl/schematics/A1200_R1.pdf" target="_blank" rel="noopener noreferrer">Schemat A1200 Rev. 1–1D (PDF) ↗</a></div>
+      </div>
+      <p class="workshop-document-note">Informacje mają charakter edukacyjny. Odczytaj dokładny numer swojej płyty i zweryfikuj dane w dokumentacji źródłowej; niektóre opracowania społecznościowe mogą zawierać błędy.</p>
+    </section>
+    <section class="workshop-next">
+      <div><span class="eyebrow">KIERUNEK ROZWOJU</span><h2>OD DIAGNOZY <span class="accent">DO NAPRAWY.</span></h2><p>To pierwsza wersja Warsztatu Retro. Kolejne materiały mogą obejmować dokładne pomiary, analizę toru wideo, naprawy zasilania niskonapięciowego, gniazd i pamięci masowych. Będziemy dodawać je po weryfikacji.</p></div>
+      <a class="btn ghost" href="komputery-retro.html">← KOMPUTERY RETRO</a>
+    </section>
+  </main>
+  <footer class="wrap footer"><span>© 2026 RETRO PRZYSTAŃ · ARTUR GOCH „GROSZEK” & CHATGPT</span><span>MADE WITH ♥ FOR 8-BIT COMPUTERS</span></footer>
+</body>
+</html>
