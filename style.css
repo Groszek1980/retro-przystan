@@ -218,3 +218,9 @@ repeating-linear-gradient(to bottom,#483f3b 0 13px,#877867 13px 16px);box-shadow
 .workshop-home-cards a>small{font-size:10px;letter-spacing:1px;color:#bcb1d1}
 @media(max-width:870px){.workshop-home-layout{grid-template-columns:1fr}}
 @media(max-width:490px){.workshop-home-cards a{grid-template-columns:95px 1fr;padding:14px}.workshop-home-cards a>strong{font-size:10px}}
+
+/* Główny baner dostarczony przez autora — pełna rozdzielczość 1536×512. */
+.home-main-banner{padding-top:24px;padding-bottom:0}
+.home-main-banner img{display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:contain;box-sizing:border-box;border:1px solid #585076;border-radius:11px;background:#14122d;box-shadow:0 12px 35px #0005}
+.home-main-banner + .hero{padding-top:48px}
+@media(max-width:700px){.home-main-banner{padding-top:12px}.home-main-banner img{border-radius:6px}.home-main-banner + .hero{padding-top:32px}}
